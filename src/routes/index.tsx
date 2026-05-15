@@ -8,6 +8,7 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import heroDoctor from "@/assets/hero-doctor.jpg";
+import logo from "@/assets/nextgo-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -35,11 +36,8 @@ function Navbar() {
   return (
     <header className="glass fixed top-0 inset-x-0 z-50">
       <nav className="mx-auto max-w-7xl px-5 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 font-display font-bold text-lg">
-          <span className="grid place-items-center w-9 h-9 rounded-xl gradient-primary text-primary-foreground">
-            <HeartPulse className="w-5 h-5" />
-          </span>
-          <span>Next <span className="text-primary">Go</span></span>
+        <a href="#" className="flex items-center" aria-label="Next Go Saúde">
+          <img src={logo} alt="Next Go Saúde" width={140} height={44} className="h-9 w-auto" />
         </a>
         <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
           {links.map(l => (
@@ -361,12 +359,7 @@ function Footer() {
     <footer className="bg-foreground text-background pt-16 pb-8">
       <div className="mx-auto max-w-7xl px-5 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
-          <div className="flex items-center gap-2 font-display font-bold text-xl">
-            <span className="grid place-items-center w-9 h-9 rounded-xl gradient-primary">
-              <HeartPulse className="w-5 h-5" />
-            </span>
-            Next Go
-          </div>
+          <img src={logo} alt="Next Go Saúde" width={160} height={50} className="h-11 w-auto brightness-0 invert" />
           <p className="mt-4 text-sm opacity-70 max-w-sm">
             Telemedicina 24h para pessoas e empresas. Saúde na palma da mão, com tecnologia, acolhimento e segurança.
           </p>
