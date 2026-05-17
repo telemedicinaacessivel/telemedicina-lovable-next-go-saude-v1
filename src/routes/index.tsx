@@ -174,28 +174,18 @@ function Benefits() {
           ))}
         </div>
 
-        <div className="mt-16 rounded-3xl border border-border bg-card/60 backdrop-blur p-8 md:p-10 shadow-card">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-            <div>
-              <span className="text-xs font-semibold text-primary uppercase tracking-wider">Clube de Descontos</span>
-              <h3 className="mt-2 font-display text-2xl md:text-3xl font-bold">Parceiros que cuidam do seu bolso</h3>
-              <p className="mt-2 text-muted-foreground max-w-xl">Até 70% de desconto em medicamentos, exames e mais — nas maiores redes do Brasil.</p>
-            </div>
-            <span className="text-xs text-muted-foreground">e outros parceiros</span>
-          </div>
-          <ul className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {PARTNERS.map(p => (
-              <li key={p.name} className="h-20 rounded-2xl border border-border bg-background grid place-items-center px-4 transition hover:shadow-card hover:-translate-y-0.5">
-                <img
-                  src={p.src}
-                  alt={p.name}
-                  loading="lazy"
-                  className="max-h-12 max-w-full w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className="mt-16 grid grid-cols-3 md:grid-cols-6 gap-x-8 gap-y-6 items-center">
+          {PARTNERS.map(p => (
+            <li key={p.name} className="grid place-items-center">
+              <img
+                src={p.src}
+                alt={p.name}
+                loading="lazy"
+                className="max-h-10 md:max-h-12 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition"
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
