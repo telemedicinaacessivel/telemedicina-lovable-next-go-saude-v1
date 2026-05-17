@@ -9,6 +9,12 @@ import {
 } from "@/components/ui/accordion";
 import heroDoctor from "@/assets/hero-doctor.jpg";
 import logo from "@/assets/nextgo-logo.png";
+import partnerRaia from "@/assets/partners/droga-raia.png";
+import partnerDrogasil from "@/assets/partners/drogasil.png";
+import partnerPagueMenos from "@/assets/partners/pague-menos.png";
+import partnerSaoMarcos from "@/assets/partners/sao-marcos.png";
+import partnerHermesPardini from "@/assets/partners/hermes-pardini.png";
+import partnerCmn from "@/assets/partners/cmn-guanabara.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
