@@ -139,13 +139,6 @@ function Hero() {
   );
 }
 
-import partnerRaia from "@/assets/partners/droga-raia.png";
-import partnerDrogasil from "@/assets/partners/drogasil.png";
-import partnerPagueMenos from "@/assets/partners/pague-menos.png";
-import partnerSaoMarcos from "@/assets/partners/sao-marcos.png";
-import partnerHermesPardini from "@/assets/partners/hermes-pardini.png";
-import partnerCmn from "@/assets/partners/cmn-guanabara.png";
-
 const PARTNERS = [
   { src: partnerRaia, name: "Droga Raia" },
   { src: partnerDrogasil, name: "Drogasil" },
