@@ -9,6 +9,12 @@ import {
 } from "@/components/ui/accordion";
 import heroDoctor from "@/assets/hero-doctor.jpg";
 import logo from "@/assets/nextgo-logo.png";
+import partnerRaia from "@/assets/partners/droga-raia.png";
+import partnerDrogasil from "@/assets/partners/drogasil.png";
+import partnerPagueMenos from "@/assets/partners/pague-menos.png";
+import partnerSaoMarcos from "@/assets/partners/sao-marcos.png";
+import partnerHermesPardini from "@/assets/partners/hermes-pardini.png";
+import partnerCmn from "@/assets/partners/cmn-guanabara.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -133,6 +139,15 @@ function Hero() {
   );
 }
 
+const PARTNERS = [
+  { src: partnerRaia, name: "Droga Raia" },
+  { src: partnerDrogasil, name: "Drogasil" },
+  { src: partnerPagueMenos, name: "Pague Menos" },
+  { src: partnerHermesPardini, name: "Hermes Pardini" },
+  { src: partnerSaoMarcos, name: "São Marcos" },
+  { src: partnerCmn, name: "Centro de Medicina Nuclear da Guanabara" },
+];
+
 function Benefits() {
   const items = [
     { icon: ShieldCheck, title: "Conformidade NR-01", desc: "Atendemos integralmente a NR-01 com gestão de riscos psicossociais e relatórios para o seu PGR." },
@@ -157,6 +172,29 @@ function Benefits() {
               <p className="mt-2 text-muted-foreground">{i.desc}</p>
             </article>
           ))}
+        </div>
+
+        <div className="mt-16 rounded-3xl border border-border bg-card/60 backdrop-blur p-8 md:p-10 shadow-card">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div>
+              <span className="text-xs font-semibold text-primary uppercase tracking-wider">Clube de Descontos</span>
+              <h3 className="mt-2 font-display text-2xl md:text-3xl font-bold">Parceiros que cuidam do seu bolso</h3>
+              <p className="mt-2 text-muted-foreground max-w-xl">Até 70% de desconto em medicamentos, exames e mais — nas maiores redes do Brasil.</p>
+            </div>
+            <span className="text-xs text-muted-foreground">e outros parceiros</span>
+          </div>
+          <ul className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {PARTNERS.map(p => (
+              <li key={p.name} className="h-20 rounded-2xl border border-border bg-background grid place-items-center px-4 transition hover:shadow-card hover:-translate-y-0.5">
+                <img
+                  src={p.src}
+                  alt={p.name}
+                  loading="lazy"
+                  className="max-h-12 max-w-full w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
@@ -328,11 +366,25 @@ function Trust() {
 
 function FAQ() {
   const faqs = [
-    { q: "O que é a Telemedicina 24h da Next Go?", a: "É o atendimento médico online a qualquer hora do dia, 7 dias por semana, com clínicos gerais, pediatras e especialistas, por vídeo ou chat." },
-    { q: "Existe carência para usar o plano?", a: "Não. A partir da confirmação do pagamento você já pode realizar consultas imediatamente." },
-    { q: "As receitas digitais têm validade?", a: "Sim. Todas as receitas, atestados e pedidos de exame são assinados digitalmente conforme as normas do CFM." },
-    { q: "Como funciona o Clube de Descontos em Farmácia?", a: "Você apresenta seu CPF nas farmácias parceiras e recebe descontos de até 70% em medicamentos." },
-    { q: "A Next Go atende a NR-01 para empresas?", a: "Sim. Entregamos relatórios completos de gestão de riscos psicossociais e suporte para auditorias." },
+    { q: "O que é a NextGo Saúde?", a: "A NextGo Saúde é a sua plataforma de telemedicina completa, que te conecta com médicos de diversas especialidades, psicólogos e nutricionistas de onde você estiver, a hora que precisar. Nosso objetivo é melhorar a sua vida e a da sua família, oferecendo acesso fácil e rápido a serviços de saúde de qualidade a preços justos. Chega de filas e burocracia, a saúde está na palma da sua mão!" },
+    { q: "Como funciona a telemedicina da NextGo Saúde?", a: "A telemedicina é como uma consulta médica normal, só que realizada à distância usando a internet. Você pode conversar com médicos, tirar dúvidas, receber diagnósticos e até acompanhamento médico sem sair de casa. É tudo feito por vídeo chamada através da nossa plataforma." },
+    { q: "Quais serviços estão incluídos nos planos da NextGo Saúde?", a: "Nossos planos oferecem uma variedade de serviços para cuidar da sua saúde, do Básico ao Premium: Pronto Atendimento 24h por dia, 7 dias por semana, com tempo de espera médio de apenas 8 minutos; agendamento de consultas com mais de 30 especialidades médicas (adulto e infantil); Telepsicologia e Telenutrição sem necessidade de encaminhamento; emissão de receitas, atestados e pedidos de exame; histórico completo de atendimento; encaminhamento para especialistas da rede; e Clube de Descontos com até 70% em medicamentos nas principais farmácias (Raia, Pague Menos, Araújo), exames (Hermes Pardini, São Marcos) e diversas lojas como Magalu, Petz e Netshoes." },
+    { q: "Quais são as especialidades médicas disponíveis?", a: "Mais de 30 especialidades para você e sua família: Alergia e Imunologia, Cardiologia, Cirurgia Vascular, Coloproctologia, Dermatologia (adulto e pediátrica), Endocrinologia e Metabologia (adulto e pediátrica), Gastroenterologia e Hepatologia (adulto e pediátrica), Geriatria, Ginecologia e Obstetrícia, Hematologia e Hematoterapia (adulto e pediátrica), Infectologia (adulto e pediátrica), Mastologia, Nefrologia, Neurologia, Nutrologia (adulto e pediátrica), Oftalmologia (adulto e pediátrica), Ortopedia, Otorrinolaringologia (adulto e pediátrica), Pediatria, Pneumologia (adulto e pediátrica), Psiquiatria, Reumatologia e Urologia." },
+    { q: "Como agendar uma consulta?", a: "É super fácil! Agende suas consultas de especialista pela nossa plataforma web ou pelo aplicativo. Basta fazer login, selecionar a especialidade e escolher o melhor horário. Para o pronto atendimento o acesso é imediato, sem agendamento." },
+    { q: "Como criar minha conta?", a: "Após escolher seu plano e realizar o pagamento, você recebe um link por e-mail e WhatsApp para criar seu acesso com login e senha. Depois, é só baixar o aplicativo e cadastrar você e sua família. Para crianças ou idosos sem e-mail ou celular, você pode usar seus próprios dados no cadastro deles." },
+    { q: "Como acessar minha conta?", a: "Acesse diretamente pelo site https://app.nextgosaude.com.br/ ou pelo aplicativo NextGo Saúde, disponível na Play Store (Android) e App Store (iOS). Se preferir, adicione o link à tela inicial do seu celular para acessar sem instalar o app e economizar memória." },
+    { q: "Como funciona o pronto atendimento?", a: "É só acessar o aplicativo ou o site e você será atendido em poucos minutos por um médico para te ajudar com a urgência. O tempo de espera médio é de apenas 8 minutos!" },
+    { q: "Depois de quanto tempo posso usar todos os serviços?", a: "O Pronto Atendimento e o Clube de Descontos podem ser usados imediatamente após o pagamento da primeira mensalidade. Para agendar consultas com especialistas, psicólogos e nutricionistas, há uma carência de apenas 60 dias. No plano Premium não há carência: ele já inclui 2 atendimentos mensais com Psicólogo e 1 atendimento trimestral com Nutricionista por vida." },
+    { q: "Terei que pagar alguma taxa extra nas consultas?", a: "Na maioria das especialidades e planos, não há taxa extra além da mensalidade. Apenas para consultas com psiquiatras, psicólogos, nutricionistas e dermatologistas há uma coparticipação de R$ 69,90 por consulta, paga no momento do agendamento. Nos planos Premium, consultas com nutricionistas (trimestral) e psicólogos (2 por mês) já estão inclusas sem coparticipação — você só paga se exceder o uso incluído." },
+    { q: "Como funciona o Clube de Descontos?", a: "Ao assinar qualquer plano, você ganha acesso automático ao Clube de Descontos. Basta apresentar sua identificação de membro nos parceiros conveniados para aproveitar descontos em medicamentos, exames, produtos naturais, academias e diversas outras lojas." },
+    { q: "Posso incluir minha família no plano?", a: "Com certeza! Nossos planos são ideais para a família, com opções para diferentes números de vidas. No cadastro, você inclui todos os seus dependentes." },
+    { q: "E se eu precisar cancelar o plano?", a: "O cancelamento é simples e sem burocracia: você pode cancelar direto pelo aplicativo. Também é automático em caso de suspensão do pagamento — fique atento para não perder seus acessos e não ser afetado por nova carência ao readerir. Nossos planos não têm fidelidade." },
+    { q: "O que acontece se eu não puder comparecer a uma consulta agendada?", a: "Cancelamentos devem ser feitos com pelo menos 24 horas de antecedência pela plataforma. Se for cancelado com menos de 24 horas, será cobrada uma multa de R$ 70,00. Em situações especiais, você pode solicitar reembolso ao nosso suporte." },
+    { q: "A plataforma é segura?", a: "Sim! Nossa plataforma é estável e segura, com mais de 99,9% de tempo de funcionamento. Todos os dados são tratados com privacidade e confidencialidade, seguindo a Lei Geral de Proteção de Dados (LGPD)." },
+    { q: "E se minha internet cair durante uma consulta?", a: "Imprevistos acontecem. Se sua internet cair ou a plataforma apresentar problema, entre em contato com nosso suporte para que possamos te ajudar a retomar o atendimento sem prejuízos." },
+    { q: "Para quem a NextGo Saúde é indicada?", a: "Para todos que buscam atendimento médico de qualidade, rápido e acessível: quem quer acesso a diversas especialidades sem sair de casa; quem precisa de pronto atendimento a qualquer hora; quem quer economizar com consultas, exames e medicamentos; quem mora longe de hospitais e UPAs; empresas que querem oferecer benefícios modernos de baixo custo aos colaboradores (incluindo psicologia, em conformidade com a NR-01); e brasileiros que moram fora do país e se sentem inseguros com atendimento médico em outros idiomas." },
+    { q: "Como posso obter suporte se tiver mais dúvidas?", a: "Nosso suporte ao cliente está sempre pronto para ajudar. Você pode entrar em contato pelos canais de comunicação da NextGo Saúde, direto pela plataforma." },
+    { q: "Qual o propósito da NextGo Saúde?", a: "Melhorar a vida das pessoas, proporcionando acesso a serviços de saúde de qualidade a preços justos e transformando a realidade de muitas famílias no Brasil. Queremos democratizar o atendimento médico de excelência para todos os brasileiros, onde e quando precisarem." },
   ];
   return (
     <section id="faq" className="py-20 md:py-28 bg-muted/40">
