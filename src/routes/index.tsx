@@ -133,6 +133,22 @@ function Hero() {
   );
 }
 
+import partnerRaia from "@/assets/partners/droga-raia.png";
+import partnerDrogasil from "@/assets/partners/drogasil.png";
+import partnerPagueMenos from "@/assets/partners/pague-menos.png";
+import partnerSaoMarcos from "@/assets/partners/sao-marcos.png";
+import partnerHermesPardini from "@/assets/partners/hermes-pardini.png";
+import partnerCmn from "@/assets/partners/cmn-guanabara.png";
+
+const PARTNERS = [
+  { src: partnerRaia, name: "Droga Raia" },
+  { src: partnerDrogasil, name: "Drogasil" },
+  { src: partnerPagueMenos, name: "Pague Menos" },
+  { src: partnerHermesPardini, name: "Hermes Pardini" },
+  { src: partnerSaoMarcos, name: "São Marcos" },
+  { src: partnerCmn, name: "Centro de Medicina Nuclear da Guanabara" },
+];
+
 function Benefits() {
   const items = [
     { icon: ShieldCheck, title: "Conformidade NR-01", desc: "Atendemos integralmente a NR-01 com gestão de riscos psicossociais e relatórios para o seu PGR." },
@@ -157,6 +173,29 @@ function Benefits() {
               <p className="mt-2 text-muted-foreground">{i.desc}</p>
             </article>
           ))}
+        </div>
+
+        <div className="mt-16 rounded-3xl border border-border bg-card/60 backdrop-blur p-8 md:p-10 shadow-card">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div>
+              <span className="text-xs font-semibold text-primary uppercase tracking-wider">Clube de Descontos</span>
+              <h3 className="mt-2 font-display text-2xl md:text-3xl font-bold">Parceiros que cuidam do seu bolso</h3>
+              <p className="mt-2 text-muted-foreground max-w-xl">Até 70% de desconto em medicamentos, exames e mais — nas maiores redes do Brasil.</p>
+            </div>
+            <span className="text-xs text-muted-foreground">e outros parceiros</span>
+          </div>
+          <ul className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {PARTNERS.map(p => (
+              <li key={p.name} className="h-20 rounded-2xl border border-border bg-background grid place-items-center px-4 transition hover:shadow-card hover:-translate-y-0.5">
+                <img
+                  src={p.src}
+                  alt={p.name}
+                  loading="lazy"
+                  className="max-h-12 max-w-full w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
