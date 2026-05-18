@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Stethoscope, Clock, ShieldCheck, Pill, BadgeCheck, Building2,
-  Check, Menu, X, MessageCircle, Lock, HeartPulse, Users, Sparkles,
+  Check, Menu, X, MessageCircle, Sparkles, ShieldPlus, HandHeart,
+  TrendingDown, Rocket,
 } from "lucide-react";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
