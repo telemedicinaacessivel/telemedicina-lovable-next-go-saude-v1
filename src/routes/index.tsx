@@ -460,6 +460,7 @@ function B2B() {
   );
 }
 
+function FAQ() {
   const faqs = [
     { q: "O que é a NextGo Saúde?", a: "A NextGo Saúde é a sua plataforma de telemedicina completa, que te conecta com médicos de diversas especialidades, psicólogos e nutricionistas de onde você estiver, a hora que precisar. Nosso objetivo é melhorar a sua vida e a da sua família, oferecendo acesso fácil e rápido a serviços de saúde de qualidade a preços justos. Chega de filas e burocracia, a saúde está na palma da sua mão!" },
     { q: "Como funciona a telemedicina da NextGo Saúde?", a: "A telemedicina é como uma consulta médica normal, só que realizada à distância usando a internet. Você pode conversar com médicos, tirar dúvidas, receber diagnósticos e até acompanhamento médico sem sair de casa. É tudo feito por vídeo chamada através da nossa plataforma." },
