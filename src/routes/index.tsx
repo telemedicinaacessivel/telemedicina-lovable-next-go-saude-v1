@@ -555,11 +555,11 @@ function Index() {
     <main className="min-h-screen">
       <Navbar />
       <Hero />
-      <Trust />
       <Benefits />
+      <WhyTelemedicine />
       <Pricing />
-      <B2B />
       <FAQ />
+      <B2B />
       <Footer />
       <FloatingWhats />
     </main>
