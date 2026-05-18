@@ -195,49 +195,143 @@ function Benefits() {
   );
 }
 
-const PLANS = {
-  individual: [
-    { name: "Essencial", price: 29.9, suffix: "/mês", desc: "Ideal para você começar a cuidar da saúde digitalmente.", features: ["Médico 24h por vídeo", "Receitas e atestados digitais", "Clube de descontos em farmácia", "Sem carência"], highlight: false },
-    { name: "Familiar", price: 49.9, suffix: "/mês", desc: "Cuide de até 4 pessoas no mesmo plano.", features: ["Tudo do Essencial", "Até 4 dependentes", "Pediatria 24h", "Psicólogo online"], highlight: true, badge: "Mais popular" },
-    { name: "Família+", price: 89.9, suffix: "/mês", desc: "Cobertura completa com especialistas.", features: ["Tudo do Familiar", "Especialistas online", "Check-up anual", "Suporte prioritário"], highlight: false },
-  ],
-  empresa: [
-    { name: "Starter", price: 19.9, suffix: "/colaborador", desc: "Para times até 50 pessoas. Conformidade NR-01 inclusa.", features: ["Médico 24h para colaboradores", "Relatórios NR-01", "Painel de gestão", "Onboarding em 48h"], highlight: false },
-    { name: "Business", price: 14.9, suffix: "/colaborador", desc: "Para empresas com 50+ colaboradores. Melhor custo-benefício.", features: ["Tudo do Starter", "Riscos psicossociais", "Saúde mental dedicada", "Gestor de conta"], highlight: true, badge: "Mais popular" },
-    { name: "Enterprise", price: 9.9, suffix: "/colaborador", desc: "Soluções sob medida para grandes operações.", features: ["Tudo do Business", "API e SSO", "SLA dedicado", "Programas customizados"], highlight: false },
-  ],
-};
+function WhyTelemedicine() {
+  const cards = [
+    {
+      icon: ShieldPlus,
+      kicker: "Já tem plano de saúde?",
+      title: "Use a Next Go como complemento",
+      desc: "A Next Go é o complemento inteligente que seu plano não oferece.",
+      bullets: [
+        "Atendimento 24h sem coparticipação — economize nas urgências",
+        "Clínico geral e pediatra em minutos, sem esperar meses por agendamento",
+        "Ideal para urgências não emergenciais — evite filas de pronto-socorro",
+        "Atestados e receitas digitais emitidos na hora, direto no celular",
+        "A partir de R$ 29,90/mês — menos que uma pizza para a família",
+      ],
+      cta: "Quero complementar",
+    },
+    {
+      icon: HandHeart,
+      kicker: "Não tem plano de saúde?",
+      title: "Tenha médico sem depender só do SUS",
+      desc: "Acesso a médicos quando você precisar, sem fila e sem burocracia.",
+      bullets: [
+        "Consulta médica sem horas de espera na fila do posto",
+        "Acesso a mais de 30 especialidades por um preço fixo mensal",
+        "Clube de Descontos com até 70% off em medicamentos e exames",
+        "Atendimento ilimitado — sem surpresas no fim do mês",
+        "Cabe no bolso: menos que uma diária de farmácia",
+      ],
+      cta: "Quero assinar",
+    },
+  ];
+  return (
+    <section id="beneficios-b2c" className="py-20 md:py-28 bg-muted/40">
+      <div className="mx-auto max-w-7xl px-5">
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Por que ter telemedicina?</span>
+          <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">Por que assinar a Next Go?</h2>
+          <p className="mt-4 text-muted-foreground text-lg">
+            Ter acesso a médico 24 horas muda a forma como você cuida da sua saúde — com ou sem plano de saúde.
+          </p>
+        </div>
+        <div className="mt-12 grid md:grid-cols-2 gap-6">
+          {cards.map(c => (
+            <article
+              key={c.title}
+              className="group p-8 rounded-3xl bg-card border border-border shadow-card transition hover:-translate-y-1 hover:shadow-soft"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 grid place-items-center rounded-2xl gradient-primary text-primary-foreground shadow-soft shrink-0">
+                  <c.icon className="w-7 h-7" />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">{c.kicker}</span>
+                  <h3 className="font-display text-xl md:text-2xl font-bold leading-tight">{c.title}</h3>
+                </div>
+              </div>
+              <p className="mt-5 text-muted-foreground">{c.desc}</p>
+              <ul className="mt-6 space-y-3">
+                {c.bullets.map(b => (
+                  <li key={b} className="flex gap-2 text-sm">
+                    <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={WHATSAPP}
+                target="_blank" rel="noopener"
+                className="mt-7 inline-flex items-center gap-2 gradient-primary text-primary-foreground font-semibold px-6 py-3 rounded-full shadow-soft hover:scale-[1.02] transition"
+              >
+                {c.cta} →
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const PLANS = [
+  {
+    name: "Básico",
+    price: 29.9,
+    desc: "Pronto atendimento para você começar a cuidar da saúde digitalmente.",
+    features: [
+      "Clínico geral 24h por vídeo",
+      "Pediatra 24h",
+      "Atestados e receitas digitais",
+      "Sem carência no pronto atendimento",
+    ],
+    highlight: false,
+  },
+  {
+    name: "Familiar",
+    price: 49.9,
+    desc: "Para cuidar de até 4 pessoas no mesmo plano.",
+    features: [
+      "Tudo do Básico",
+      "Até 4 dependentes inclusos",
+      "Clube de Descontos com até 70% off",
+      "Acompanhamento familiar",
+    ],
+    highlight: true,
+    badge: "Mais popular",
+  },
+  {
+    name: "Família+",
+    price: 89.9,
+    desc: "Cobertura completa com mais de 30 especialidades.",
+    features: [
+      "Tudo do Familiar",
+      "30+ especialidades online",
+      "Check-up anual",
+      "Suporte prioritário",
+    ],
+    highlight: false,
+  },
+];
 
 function Pricing() {
-  const [tab, setTab] = useState<"individual" | "empresa">("individual");
-  const plans = PLANS[tab];
   return (
-    <section id="planos" className="py-20 md:py-28 bg-muted/40">
+    <section id="planos" className="py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-5">
         <div className="text-center max-w-2xl mx-auto">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">Planos</span>
+          <p className="mt-3 text-sm font-semibold text-primary">
+            Sem carência. Sem fidelidade. Cancele quando quiser.
+          </p>
           <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">Escolha o cuidado certo para você</h2>
-          <p className="mt-4 text-muted-foreground text-lg">Sem carência. Cancele quando quiser. Pagamento via cartão ou PIX.</p>
-        </div>
-
-        <div className="mt-10 flex justify-center">
-          <div className="inline-flex bg-card border border-border rounded-full p-1 shadow-card">
-            {(["individual","empresa"] as const).map(t => (
-              <button
-                key={t}
-                onClick={() => setTab(t)}
-                className={`relative px-6 py-2.5 text-sm font-semibold rounded-full transition ${
-                  tab === t ? "gradient-primary text-primary-foreground shadow-soft" : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {t === "individual" ? <><Users className="inline w-4 h-4 mr-1.5" />Individual</> : <><Building2 className="inline w-4 h-4 mr-1.5" />Empresa</>}
-              </button>
-            ))}
-          </div>
+          <p className="mt-4 text-muted-foreground text-lg">
+            Pagamento via cartão ou PIX. Acesso imediato após a primeira mensalidade.
+          </p>
         </div>
 
         <div className="mt-12 grid md:grid-cols-3 gap-6">
-          {plans.map(p => (
+          {PLANS.map(p => (
             <article
               key={p.name}
               className={`relative p-7 rounded-3xl border bg-card transition ${
@@ -256,16 +350,16 @@ function Pricing() {
                 <span className="font-display text-5xl font-extrabold">
                   {p.price.toFixed(2).replace(".", ",")}
                 </span>
-                <span className="text-sm text-muted-foreground">{p.suffix}</span>
+                <span className="text-sm text-muted-foreground">/mês</span>
               </div>
               <a
-                href={WHATSAPP}
+                href={WHATSAPP_SUBSCRIBE}
                 target="_blank" rel="noopener"
                 className={`mt-6 block text-center px-5 py-3 rounded-full font-semibold transition ${
                   p.highlight ? "gradient-primary text-primary-foreground shadow-soft hover:scale-[1.02]" : "bg-foreground text-background hover:opacity-90"
                 }`}
               >
-                {tab === "empresa" ? "Falar com vendas" : "Assinar agora"}
+                Quero assinar →
               </a>
               <ul className="mt-6 space-y-3">
                 {p.features.map(f => (
@@ -278,58 +372,87 @@ function Pricing() {
             </article>
           ))}
         </div>
+
+        <p className="mt-10 text-center text-sm text-muted-foreground max-w-2xl mx-auto">
+          🩺 Consultas com clínico geral, pediatra e 30+ especialidades. 💊 Clube de Descontos em farmácias e laboratórios incluso nos planos Familiar e Família+.
+        </p>
       </div>
     </section>
   );
 }
 
 function B2B() {
-  const points = [
-    "Conformidade total com a NR-01 e gestão de riscos psicossociais",
-    "Painel de gestão com indicadores de uso e saúde do time",
-    "Onboarding em 48h e suporte dedicado",
-    "Redução comprovada de absenteísmo e turnover",
+  const cards = [
+    {
+      icon: ShieldCheck,
+      title: "Conformidade NR-01",
+      bullets: ["Gestão de riscos psicossociais", "Relatórios prontos para auditoria e PGR"],
+    },
+    {
+      icon: TrendingDown,
+      title: "Redução de Custos",
+      bullets: ["Até -32% de absenteísmo comprovado", "Sem custo de plano de saúde tradicional"],
+    },
+    {
+      icon: Rocket,
+      title: "Implantação Rápida",
+      bullets: ["Onboarding em 48h", "Painel de gestão em tempo real", "Suporte dedicado"],
+    },
+  ];
+  const stats = [
+    ["98%", "satisfação"],
+    ["-32%", "absenteísmo"],
+    ["48h", "implantação"],
+    ["+200", "empresas"],
   ];
   return (
-    <section id="empresas" className="py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-5 grid lg:grid-cols-2 gap-12 items-center">
-        <div className="relative order-2 lg:order-1">
-          <div className="aspect-square rounded-3xl gradient-primary p-10 text-primary-foreground shadow-soft">
-            <Building2 className="w-12 h-12" />
-            <p className="mt-6 font-display text-3xl font-bold leading-tight">
-              Sua empresa em conformidade com a NR-01, sem dor de cabeça.
-            </p>
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              {[
-                ["98%","satisfação"],
-                ["-32%","absenteísmo"],
-                ["48h","implantação"],
-                ["+200","empresas"],
-              ].map(([n,l]) => (
-                <div key={l} className="bg-white/10 rounded-xl p-4 backdrop-blur">
-                  <p className="text-2xl font-extrabold">{n}</p>
-                  <p className="text-xs opacity-80">{l}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="order-1 lg:order-2">
-          <span className="text-sm font-semibold text-secondary uppercase tracking-wider">Para empresas</span>
-          <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">Benefícios NR-01 que cuidam de gente</h2>
+    <section id="solucoes-empresas" className="py-20 md:py-28 bg-[oklch(0.97_0.012_220)] border-t border-border">
+      <div className="mx-auto max-w-7xl px-5">
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="inline-flex items-center gap-2 text-sm font-semibold text-secondary uppercase tracking-wider">
+            <Building2 className="w-4 h-4" /> Para empresas
+          </span>
+          <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">Soluções para sua empresa</h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Atenda à legislação trabalhista e ofereça saúde de verdade para o seu time. A Next Go entrega telemedicina 24h, saúde mental e relatórios prontos para auditoria.
+            Cuide da saúde do seu time e fique em dia com a NR-01.
           </p>
-          <ul className="mt-6 space-y-3">
-            {points.map(p => (
-              <li key={p} className="flex gap-3">
-                <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <span>{p}</span>
-              </li>
-            ))}
-          </ul>
-          <a href={WHATSAPP} target="_blank" rel="noopener" className="mt-8 inline-flex items-center gap-2 gradient-primary text-primary-foreground font-semibold px-7 py-4 rounded-full shadow-soft">
-            <MessageCircle className="w-4 h-4" /> Solicitar proposta
+        </div>
+
+        <div className="mt-12 grid md:grid-cols-3 gap-6">
+          {cards.map(c => (
+            <article key={c.title} className="p-7 rounded-2xl bg-card border border-border shadow-card hover:-translate-y-1 transition">
+              <div className="w-12 h-12 grid place-items-center rounded-xl gradient-primary text-primary-foreground shadow-soft">
+                <c.icon className="w-6 h-6" />
+              </div>
+              <h3 className="mt-5 font-display text-xl font-bold">{c.title}</h3>
+              <ul className="mt-3 space-y-2">
+                {c.bullets.map(b => (
+                  <li key={b} className="flex gap-2 text-sm text-muted-foreground">
+                    <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {stats.map(([n, l]) => (
+            <div key={l}>
+              <p className="font-display text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{n}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{l}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <a
+            href={WHATSAPP_B2B}
+            target="_blank" rel="noopener"
+            className="inline-flex items-center gap-2 gradient-primary text-primary-foreground font-semibold px-7 py-4 rounded-full shadow-soft hover:scale-[1.02] transition"
+          >
+            <MessageCircle className="w-4 h-4" /> Solicitar proposta →
           </a>
         </div>
       </div>
@@ -337,28 +460,6 @@ function B2B() {
   );
 }
 
-function Trust() {
-  const seals = [
-    { icon: BadgeCheck, label: "CFM 2026" },
-    { icon: Lock, label: "SSL 256-bit" },
-    { icon: ShieldCheck, label: "LGPD" },
-    { icon: HeartPulse, label: "ANS conforme" },
-  ];
-  return (
-    <section className="py-12 border-y border-border bg-card">
-      <div className="mx-auto max-w-7xl px-5 flex flex-wrap items-center justify-center gap-8 md:gap-14">
-        {seals.map(s => (
-          <div key={s.label} className="flex items-center gap-2 text-muted-foreground">
-            <s.icon className="w-5 h-5 text-primary" />
-            <span className="font-semibold text-sm">{s.label}</span>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function FAQ() {
   const faqs = [
     { q: "O que é a NextGo Saúde?", a: "A NextGo Saúde é a sua plataforma de telemedicina completa, que te conecta com médicos de diversas especialidades, psicólogos e nutricionistas de onde você estiver, a hora que precisar. Nosso objetivo é melhorar a sua vida e a da sua família, oferecendo acesso fácil e rápido a serviços de saúde de qualidade a preços justos. Chega de filas e burocracia, a saúde está na palma da sua mão!" },
     { q: "Como funciona a telemedicina da NextGo Saúde?", a: "A telemedicina é como uma consulta médica normal, só que realizada à distância usando a internet. Você pode conversar com médicos, tirar dúvidas, receber diagnósticos e até acompanhamento médico sem sair de casa. É tudo feito por vídeo chamada através da nossa plataforma." },
