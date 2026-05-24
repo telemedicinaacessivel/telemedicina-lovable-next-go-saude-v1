@@ -151,7 +151,7 @@ const PARTNERS = [
 
 function Benefits() {
   const items = [
-    { icon: ShieldCheck, title: "Conformidade NR-01", desc: "Atendemos integralmente a NR-01 com gestão de riscos psicossociais e relatórios para o seu PGR." },
+    { icon: Sparkles, title: "Sem carência, sem fidelidade", desc: "Acesso imediato após a primeira mensalidade. Cancele quando quiser, sem multa ou burocracia." },
     { icon: Pill, title: "Clube de Descontos em Farmácia", desc: "Rede credenciada com até 70% de desconto em medicamentos de marca, genéricos e similares." },
     { icon: Stethoscope, title: "Médico 24h, todos os dias", desc: "Acesso ilimitado a clínicos gerais, pediatras e especialistas, sem carência e sem limite de consultas." },
   ];
@@ -161,7 +161,7 @@ function Benefits() {
         <div className="max-w-2xl">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">Diferenciais</span>
           <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">Saúde na palma da mão, com benefícios reais</h2>
-          <p className="mt-4 text-muted-foreground text-lg">Mais que telemedicina: um ecossistema de cuidado pensado para acolher pessoas e proteger empresas.</p>
+          <p className="mt-4 text-muted-foreground text-lg">Mais que telemedicina: um ecossistema de cuidado pensado para acolher você e toda a sua família.</p>
         </div>
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           {items.map(i => (
