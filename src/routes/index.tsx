@@ -32,14 +32,12 @@ export const Route = createFileRoute("/")({
 const WA_BASE = "https://wa.me/5511999999999";
 const WHATSAPP = `${WA_BASE}?text=Quero%20conhecer%20a%20Next%20Go%20Telemedicina`;
 const WHATSAPP_SUBSCRIBE = `${WA_BASE}?text=Quero%20assinar%20a%20Next%20Go%20Telemedicina`;
-const WHATSAPP_B2B = `${WA_BASE}?text=Quero%20solicitar%20proposta%20corporativa%20Next%20Go`;
 
 function Navbar() {
   const [open, setOpen] = useState(false);
   const links = [
-    { href: "#beneficios-b2c", label: "Para você" },
+    { href: "#beneficios-b2c", label: "Por que assinar" },
     { href: "#planos", label: "Planos" },
-    { href: "#solucoes-empresas", label: "Para empresas" },
     { href: "#faq", label: "FAQ" },
   ];
   return (
