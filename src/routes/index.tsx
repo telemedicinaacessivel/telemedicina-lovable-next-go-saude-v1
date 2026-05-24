@@ -20,9 +20,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Next Go — Telemedicina 24h | Saúde na palma da mão" },
-      { name: "description", content: "Telemedicina 24h com médicos online imediatos, conformidade NR-01 e clube de descontos em farmácia. Assine a Next Go e tenha saúde na palma da mão." },
+      { name: "description", content: "Telemedicina 24h com médicos online imediatos e clube de descontos em farmácia. Assine a Next Go e tenha saúde na palma da mão." },
       { property: "og:title", content: "Next Go — Telemedicina 24h" },
-      { property: "og:description", content: "Médico online em até 20 minutos, sem carência. Planos para você, sua família e sua empresa." },
+      { property: "og:description", content: "Médico online em até 20 minutos, sem carência. Planos individuais e familiares." },
       { property: "og:type", content: "website" },
     ],
   }),
