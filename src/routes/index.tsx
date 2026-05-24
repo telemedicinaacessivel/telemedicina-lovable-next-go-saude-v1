@@ -435,9 +435,8 @@ function Footer() {
         <div>
           <h3 className="font-semibold mb-3">Navegue</h3>
           <ul className="space-y-2 text-sm opacity-80">
-            <li><a href="#beneficios-b2c">Para você</a></li>
+            <li><a href="#beneficios-b2c">Por que assinar</a></li>
             <li><a href="#planos">Planos</a></li>
-            <li><a href="#solucoes-empresas">Para empresas</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
