@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  Stethoscope, Clock, ShieldCheck, Pill, BadgeCheck, Building2,
+  Stethoscope, Clock, ShieldCheck, Pill, BadgeCheck,
   Check, Menu, X, MessageCircle, Sparkles, ShieldPlus, HandHeart,
-  TrendingDown, Rocket,
 } from "lucide-react";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
@@ -21,9 +20,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Next Go — Telemedicina 24h | Saúde na palma da mão" },
-      { name: "description", content: "Telemedicina 24h com médicos online imediatos, conformidade NR-01 e clube de descontos em farmácia. Assine a Next Go e tenha saúde na palma da mão." },
+      { name: "description", content: "Telemedicina 24h com médicos online imediatos e clube de descontos em farmácia. Assine a Next Go e tenha saúde na palma da mão." },
       { property: "og:title", content: "Next Go — Telemedicina 24h" },
-      { property: "og:description", content: "Médico online em até 20 minutos, sem carência. Planos para você, sua família e sua empresa." },
+      { property: "og:description", content: "Médico online em até 20 minutos, sem carência. Planos individuais e familiares." },
       { property: "og:type", content: "website" },
     ],
   }),
@@ -33,14 +32,12 @@ export const Route = createFileRoute("/")({
 const WA_BASE = "https://wa.me/5511999999999";
 const WHATSAPP = `${WA_BASE}?text=Quero%20conhecer%20a%20Next%20Go%20Telemedicina`;
 const WHATSAPP_SUBSCRIBE = `${WA_BASE}?text=Quero%20assinar%20a%20Next%20Go%20Telemedicina`;
-const WHATSAPP_B2B = `${WA_BASE}?text=Quero%20solicitar%20proposta%20corporativa%20Next%20Go`;
 
 function Navbar() {
   const [open, setOpen] = useState(false);
   const links = [
-    { href: "#beneficios-b2c", label: "Para você" },
+    { href: "#beneficios-b2c", label: "Por que assinar" },
     { href: "#planos", label: "Planos" },
-    { href: "#solucoes-empresas", label: "Para empresas" },
     { href: "#faq", label: "FAQ" },
   ];
   return (
@@ -96,7 +93,7 @@ function Hero() {
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-xl">
             Médico online imediato, receitas digitais e clube de descontos em farmácia.
-            A Next Go coloca a sua saúde na palma da mão — para você, sua família e sua empresa.
+            A Next Go coloca a sua saúde na palma da mão — para você e toda a sua família.
           </p>
           <ul className="mt-6 flex flex-wrap gap-3">
             {quick.map(q => (
@@ -154,7 +151,7 @@ const PARTNERS = [
 
 function Benefits() {
   const items = [
-    { icon: ShieldCheck, title: "Conformidade NR-01", desc: "Atendemos integralmente a NR-01 com gestão de riscos psicossociais e relatórios para o seu PGR." },
+    { icon: Sparkles, title: "Sem carência, sem fidelidade", desc: "Acesso imediato após a primeira mensalidade. Cancele quando quiser, sem multa ou burocracia." },
     { icon: Pill, title: "Clube de Descontos em Farmácia", desc: "Rede credenciada com até 70% de desconto em medicamentos de marca, genéricos e similares." },
     { icon: Stethoscope, title: "Médico 24h, todos os dias", desc: "Acesso ilimitado a clínicos gerais, pediatras e especialistas, sem carência e sem limite de consultas." },
   ];
@@ -164,7 +161,7 @@ function Benefits() {
         <div className="max-w-2xl">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">Diferenciais</span>
           <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">Saúde na palma da mão, com benefícios reais</h2>
-          <p className="mt-4 text-muted-foreground text-lg">Mais que telemedicina: um ecossistema de cuidado pensado para acolher pessoas e proteger empresas.</p>
+          <p className="mt-4 text-muted-foreground text-lg">Mais que telemedicina: um ecossistema de cuidado pensado para acolher você e toda a sua família.</p>
         </div>
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           {items.map(i => (
@@ -381,84 +378,6 @@ function Pricing() {
   );
 }
 
-function B2B() {
-  const cards = [
-    {
-      icon: ShieldCheck,
-      title: "Conformidade NR-01",
-      bullets: ["Gestão de riscos psicossociais", "Relatórios prontos para auditoria e PGR"],
-    },
-    {
-      icon: TrendingDown,
-      title: "Redução de Custos",
-      bullets: ["Até -32% de absenteísmo comprovado", "Sem custo de plano de saúde tradicional"],
-    },
-    {
-      icon: Rocket,
-      title: "Implantação Rápida",
-      bullets: ["Onboarding em 48h", "Painel de gestão em tempo real", "Suporte dedicado"],
-    },
-  ];
-  const stats = [
-    ["98%", "satisfação"],
-    ["-32%", "absenteísmo"],
-    ["48h", "implantação"],
-    ["+200", "empresas"],
-  ];
-  return (
-    <section id="solucoes-empresas" className="py-20 md:py-28 bg-[oklch(0.97_0.012_220)] border-t border-border">
-      <div className="mx-auto max-w-7xl px-5">
-        <div className="text-center max-w-2xl mx-auto">
-          <span className="inline-flex items-center gap-2 text-sm font-semibold text-secondary uppercase tracking-wider">
-            <Building2 className="w-4 h-4" /> Para empresas
-          </span>
-          <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">Soluções para sua empresa</h2>
-          <p className="mt-4 text-muted-foreground text-lg">
-            Cuide da saúde do seu time e fique em dia com a NR-01.
-          </p>
-        </div>
-
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
-          {cards.map(c => (
-            <article key={c.title} className="p-7 rounded-2xl bg-card border border-border shadow-card hover:-translate-y-1 transition">
-              <div className="w-12 h-12 grid place-items-center rounded-xl gradient-primary text-primary-foreground shadow-soft">
-                <c.icon className="w-6 h-6" />
-              </div>
-              <h3 className="mt-5 font-display text-xl font-bold">{c.title}</h3>
-              <ul className="mt-3 space-y-2">
-                {c.bullets.map(b => (
-                  <li key={b} className="flex gap-2 text-sm text-muted-foreground">
-                    <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {stats.map(([n, l]) => (
-            <div key={l}>
-              <p className="font-display text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{n}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{l}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <a
-            href={WHATSAPP_B2B}
-            target="_blank" rel="noopener"
-            className="inline-flex items-center gap-2 gradient-primary text-primary-foreground font-semibold px-7 py-4 rounded-full shadow-soft hover:scale-[1.02] transition"
-          >
-            <MessageCircle className="w-4 h-4" /> Solicitar proposta →
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function FAQ() {
   const faqs = [
@@ -478,7 +397,7 @@ function FAQ() {
     { q: "O que acontece se eu não puder comparecer a uma consulta agendada?", a: "Cancelamentos devem ser feitos com pelo menos 24 horas de antecedência pela plataforma. Se for cancelado com menos de 24 horas, será cobrada uma multa de R$ 70,00. Em situações especiais, você pode solicitar reembolso ao nosso suporte." },
     { q: "A plataforma é segura?", a: "Sim! Nossa plataforma é estável e segura, com mais de 99,9% de tempo de funcionamento. Todos os dados são tratados com privacidade e confidencialidade, seguindo a Lei Geral de Proteção de Dados (LGPD)." },
     { q: "E se minha internet cair durante uma consulta?", a: "Imprevistos acontecem. Se sua internet cair ou a plataforma apresentar problema, entre em contato com nosso suporte para que possamos te ajudar a retomar o atendimento sem prejuízos." },
-    { q: "Para quem a NextGo Saúde é indicada?", a: "Para todos que buscam atendimento médico de qualidade, rápido e acessível: quem quer acesso a diversas especialidades sem sair de casa; quem precisa de pronto atendimento a qualquer hora; quem quer economizar com consultas, exames e medicamentos; quem mora longe de hospitais e UPAs; empresas que querem oferecer benefícios modernos de baixo custo aos colaboradores (incluindo psicologia, em conformidade com a NR-01); e brasileiros que moram fora do país e se sentem inseguros com atendimento médico em outros idiomas." },
+    { q: "Para quem a NextGo Saúde é indicada?", a: "Para todos que buscam atendimento médico de qualidade, rápido e acessível: quem quer acesso a diversas especialidades sem sair de casa; quem precisa de pronto atendimento a qualquer hora; quem quer economizar com consultas, exames e medicamentos; quem mora longe de hospitais e UPAs; e brasileiros que moram fora do país e se sentem inseguros com atendimento médico em outros idiomas." },
     { q: "Como posso obter suporte se tiver mais dúvidas?", a: "Nosso suporte ao cliente está sempre pronto para ajudar. Você pode entrar em contato pelos canais de comunicação da NextGo Saúde, direto pela plataforma." },
     { q: "Qual o propósito da NextGo Saúde?", a: "Melhorar a vida das pessoas, proporcionando acesso a serviços de saúde de qualidade a preços justos e transformando a realidade de muitas famílias no Brasil. Queremos democratizar o atendimento médico de excelência para todos os brasileiros, onde e quando precisarem." },
   ];
@@ -509,16 +428,15 @@ function Footer() {
         <div className="md:col-span-2">
           <img src={logo} alt="Next Go Saúde" width={160} height={50} className="h-11 w-auto brightness-0 invert" />
           <p className="mt-4 text-sm opacity-70 max-w-sm">
-            Telemedicina 24h para pessoas e empresas. Saúde na palma da mão, com tecnologia, acolhimento e segurança.
+            Telemedicina 24h para você e sua família. Saúde na palma da mão, com tecnologia, acolhimento e segurança.
           </p>
           <p className="mt-4 text-xs opacity-60">CNPJ 00.000.000/0001-00 · Next Go Telemedicina LTDA</p>
         </div>
         <div>
           <h3 className="font-semibold mb-3">Navegue</h3>
           <ul className="space-y-2 text-sm opacity-80">
-            <li><a href="#beneficios-b2c">Para você</a></li>
+            <li><a href="#beneficios-b2c">Por que assinar</a></li>
             <li><a href="#planos">Planos</a></li>
-            <li><a href="#solucoes-empresas">Para empresas</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
@@ -559,7 +477,7 @@ function Index() {
       <WhyTelemedicine />
       <Pricing />
       <FAQ />
-      <B2B />
+      
       <Footer />
       <FloatingWhats />
     </main>
