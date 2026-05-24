@@ -93,7 +93,7 @@ function Hero() {
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-xl">
             Médico online imediato, receitas digitais e clube de descontos em farmácia.
-            A Next Go coloca a sua saúde na palma da mão — para você, sua família e sua empresa.
+            A Next Go coloca a sua saúde na palma da mão — para você e toda a sua família.
           </p>
           <ul className="mt-6 flex flex-wrap gap-3">
             {quick.map(q => (
