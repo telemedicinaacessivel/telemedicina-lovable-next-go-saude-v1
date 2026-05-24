@@ -428,7 +428,7 @@ function Footer() {
         <div className="md:col-span-2">
           <img src={logo} alt="Next Go Saúde" width={160} height={50} className="h-11 w-auto brightness-0 invert" />
           <p className="mt-4 text-sm opacity-70 max-w-sm">
-            Telemedicina 24h para pessoas e empresas. Saúde na palma da mão, com tecnologia, acolhimento e segurança.
+            Telemedicina 24h para você e sua família. Saúde na palma da mão, com tecnologia, acolhimento e segurança.
           </p>
           <p className="mt-4 text-xs opacity-60">CNPJ 00.000.000/0001-00 · Next Go Telemedicina LTDA</p>
         </div>
