@@ -477,7 +477,7 @@ function Index() {
       <WhyTelemedicine />
       <Pricing />
       <FAQ />
-      <B2B />
+      
       <Footer />
       <FloatingWhats />
     </main>
