@@ -370,9 +370,6 @@ function Pricing() {
           ))}
         </div>
 
-        <p className="mt-10 text-center text-sm text-muted-foreground max-w-2xl mx-auto">
-          🩺 Consultas com clínico geral, pediatra e 30+ especialidades. 💊 Clube de Descontos em farmácias e laboratórios incluso nos planos Familiar e Família+.
-        </p>
       </div>
     </section>
   );
