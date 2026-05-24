@@ -272,104 +272,147 @@ function WhyTelemedicine() {
   );
 }
 
-const PLANS = [
+const PLAN_TIERS = [
   {
     name: "Básico",
-    price: 29.9,
-    desc: "Pronto atendimento para você começar a cuidar da saúde digitalmente.",
+    individualPrice: 29.9,
+    familyPrice: 59.9,
+    desc: "Pronto atendimento 24h sem carência e sem coparticipação.",
     features: [
-      "Clínico geral 24h por vídeo",
-      "Pediatra 24h",
-      "Atestados e receitas digitais",
-      "Sem carência no pronto atendimento",
+      "Pronto Atendimento 24h — sempre sem carência",
+      "Prescrição de receitas e tratamentos",
+      "Pedidos de exames e atestado médico",
+      "Clube de Descontos com até 70% off",
     ],
     highlight: false,
   },
   {
-    name: "Familiar",
-    price: 49.9,
-    desc: "Para cuidar de até 4 pessoas no mesmo plano.",
+    name: "Intermediário",
+    individualPrice: 39.9,
+    familyPrice: 69.9,
+    desc: "Tudo do Básico com benefícios ampliados, sem carência nem coparticipação.",
     features: [
-      "Tudo do Básico",
-      "Até 4 dependentes inclusos",
-      "Clube de Descontos com até 70% off",
-      "Acompanhamento familiar",
+      "Tudo do plano Básico",
+      "Pronto Atendimento 24h sem coparticipação",
+      "Receitas, exames e atestados digitais",
+      "Clube de Descontos completo",
+    ],
+    highlight: false,
+  },
+  {
+    name: "Avançado",
+    individualPrice: 49.9,
+    familyPrice: 79.9,
+    desc: "Inclui especialistas — carência de 60 dias (30 dias no Familiar).",
+    features: [
+      "Tudo do Intermediário",
+      "Acesso a 30+ especialidades médicas",
+      "Encaminhamento para especialistas",
+      "Coparticipação de R$ 69,90 apenas em Nutrição, Psicologia, Psiquiatria e Dermatologia",
     ],
     highlight: true,
     badge: "Mais popular",
   },
   {
-    name: "Família+",
-    price: 89.9,
-    desc: "Cobertura completa com mais de 30 especialidades.",
+    name: "Premium",
+    individualPrice: 109.9,
+    familyPrice: 359.9,
+    desc: "Cobertura completa sem carência, com consultas mensais inclusas.",
     features: [
-      "Tudo do Familiar",
-      "30+ especialidades online",
-      "Check-up anual",
-      "Suporte prioritário",
+      "Tudo do Avançado, sem carência",
+      "2 consultas/mês com Psicologia inclusas por vida",
+      "1 consulta/mês com Nutrição inclusa por vida",
+      "Coparticipação de R$ 29,90 apenas em consultas extras de Nutrição, Psicologia, Psiquiatria e Dermatologia",
     ],
     highlight: false,
   },
 ];
 
 function Pricing() {
+  const [audience, setAudience] = useState<"individual" | "familiar">("individual");
   return (
     <section id="planos" className="py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-5">
         <div className="text-center max-w-2xl mx-auto">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">Planos</span>
           <p className="mt-3 text-sm font-semibold text-primary">
-            Sem carência. Sem fidelidade. Cancele quando quiser.
+            Pronto Atendimento 24h sempre sem carência. Sem fidelidade. Cancele quando quiser.
           </p>
           <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">Escolha o cuidado certo para você</h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Pagamento via cartão ou PIX. Acesso imediato após a primeira mensalidade.
+            Pagamento via PIX ou cartão de crédito. Acesso imediato após a primeira mensalidade.
           </p>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
-          {PLANS.map(p => (
-            <article
-              key={p.name}
-              className={`relative p-7 rounded-3xl border bg-card transition ${
-                p.highlight ? "border-primary shadow-soft md:-translate-y-3" : "border-border shadow-card"
-              }`}
-            >
-              {p.highlight && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 gradient-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
-                  {p.badge}
-                </span>
-              )}
-              <h3 className="font-display text-2xl font-bold">{p.name}</h3>
-              <p className="text-sm text-muted-foreground mt-1 min-h-[3rem]">{p.desc}</p>
-              <div className="mt-5 flex items-baseline gap-1">
-                <span className="text-sm font-semibold text-muted-foreground">R$</span>
-                <span className="font-display text-5xl font-extrabold">
-                  {p.price.toFixed(2).replace(".", ",")}
-                </span>
-                <span className="text-sm text-muted-foreground">/mês</span>
-              </div>
-              <a
-                href={WHATSAPP_SUBSCRIBE}
-                target="_blank" rel="noopener"
-                className={`mt-6 block text-center px-5 py-3 rounded-full font-semibold transition ${
-                  p.highlight ? "gradient-primary text-primary-foreground shadow-soft hover:scale-[1.02]" : "bg-foreground text-background hover:opacity-90"
+        <div className="mt-8 flex justify-center">
+          <div className="inline-flex p-1 rounded-full bg-muted border border-border">
+            {([
+              { key: "individual", label: "Individual" },
+              { key: "familiar", label: "Familiar (até 4 vidas)" },
+            ] as const).map(opt => (
+              <button
+                key={opt.key}
+                onClick={() => setAudience(opt.key)}
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition ${
+                  audience === opt.key
+                    ? "gradient-primary text-primary-foreground shadow-soft"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                Quero assinar →
-              </a>
-              <ul className="mt-6 space-y-3">
-                {p.features.map(f => (
-                  <li key={f} className="flex gap-2 text-sm">
-                    <Check className="w-5 h-5 text-primary shrink-0" />
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+                {opt.label}
+              </button>
+            ))}
+          </div>
         </div>
 
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {PLAN_TIERS.map(p => {
+            const price = audience === "individual" ? p.individualPrice : p.familyPrice;
+            return (
+              <article
+                key={p.name}
+                className={`relative p-7 rounded-3xl border bg-card transition ${
+                  p.highlight ? "border-primary shadow-soft lg:-translate-y-3" : "border-border shadow-card"
+                }`}
+              >
+                {p.highlight && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 gradient-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
+                    {p.badge}
+                  </span>
+                )}
+                <h3 className="font-display text-2xl font-bold">{p.name}</h3>
+                <p className="text-sm text-muted-foreground mt-1 min-h-[3rem]">{p.desc}</p>
+                <div className="mt-5 flex items-baseline gap-1">
+                  <span className="text-sm font-semibold text-muted-foreground">R$</span>
+                  <span className="font-display text-5xl font-extrabold">
+                    {price.toFixed(2).replace(".", ",")}
+                  </span>
+                  <span className="text-sm text-muted-foreground">/mês</span>
+                </div>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  {audience === "individual" ? "por vida" : "para até 4 vidas"}
+                </p>
+                <a
+                  href={WHATSAPP_SUBSCRIBE}
+                  target="_blank" rel="noopener"
+                  className={`mt-6 block text-center px-5 py-3 rounded-full font-semibold transition ${
+                    p.highlight ? "gradient-primary text-primary-foreground shadow-soft hover:scale-[1.02]" : "bg-foreground text-background hover:opacity-90"
+                  }`}
+                >
+                  Quero assinar →
+                </a>
+                <ul className="mt-6 space-y-3">
+                  {p.features.map(f => (
+                    <li key={f} className="flex gap-2 text-sm">
+                      <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
