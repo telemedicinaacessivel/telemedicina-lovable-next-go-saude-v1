@@ -351,25 +351,40 @@ function Pricing() {
           </p>
         </div>
 
-        <div className="mt-8 flex justify-center">
-          <div className="inline-flex p-1 rounded-full bg-muted border border-border">
+        <div className="mt-8 flex flex-col items-center gap-2">
+          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Escolha o tipo de plano
+          </span>
+          <div
+            role="tablist"
+            aria-label="Tipo de plano"
+            className="relative inline-flex p-1.5 rounded-full bg-muted border-2 border-primary/30 shadow-soft"
+          >
             {([
               { key: "individual", label: "Individual" },
               { key: "familiar", label: "Familiar (até 4 vidas)" },
-            ] as const).map(opt => (
-              <button
-                key={opt.key}
-                onClick={() => setAudience(opt.key)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition ${
-                  audience === opt.key
-                    ? "gradient-primary text-primary-foreground shadow-soft"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {opt.label}
-              </button>
-            ))}
+            ] as const).map(opt => {
+              const active = audience === opt.key;
+              return (
+                <button
+                  key={opt.key}
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => setAudience(opt.key)}
+                  className={`relative z-10 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+                    active
+                      ? "gradient-primary text-primary-foreground shadow-soft scale-[1.02]"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              );
+            })}
           </div>
+          <span className="text-xs text-muted-foreground mt-1">
+            ← Clique para alternar entre Individual e Familiar →
+          </span>
         </div>
 
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
