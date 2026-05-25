@@ -415,7 +415,7 @@ function Pricing() {
                   {audience === "individual" ? "por vida" : "para até 4 vidas"}
                 </p>
                 <a
-                  href={WHATSAPP_SUBSCRIBE}
+                  href={audience === "individual" ? p.individualUrl : p.familyUrl}
                   target="_blank" rel="noopener"
                   className={`mt-6 block text-center px-5 py-3 rounded-full font-semibold transition ${
                     p.highlight ? "gradient-primary text-primary-foreground shadow-soft hover:scale-[1.02]" : "bg-foreground text-background hover:opacity-90"
