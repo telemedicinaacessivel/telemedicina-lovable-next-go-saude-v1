@@ -7,7 +7,7 @@ import logo from "@/assets/nextgo-logo.png";
 export const Route = createFileRoute("/design-system")({
   head: () => ({
     meta: [
-      { title: "Design System — Next Go (interno)" },
+      { title: "Design System — Next Go Saúde (interno)" },
       { name: "robots", content: "noindex, nofollow, noarchive, nosnippet" },
       { name: "googlebot", content: "noindex, nofollow" },
     ],
@@ -59,7 +59,7 @@ function DesignSystem() {
       <header className="gradient-brand text-white">
         <div className="mx-auto max-w-6xl px-6 py-14">
           <div className="flex items-center justify-between mb-10">
-            <img src={logo} alt="Next Go" className="h-10 w-auto brightness-0 invert" />
+            <img src={logo} alt="Next Go Saúde" className="h-10 w-auto brightness-0 invert" />
             <span className="text-xs font-semibold tracking-widest uppercase bg-white/15 px-3 py-1 rounded-full border border-white/20">
               Uso interno · não indexado
             </span>
