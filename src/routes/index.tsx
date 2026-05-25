@@ -276,6 +276,8 @@ const PLAN_TIERS = [
     name: "Básico",
     individualPrice: 29.9,
     familyPrice: 59.9,
+    individualUrl: "https://app.nextgosaude.com.br/public/plans/259598e8-8f3d-47ad-bcc9-5d8f0e61ce61",
+    familyUrl: "https://app.nextgosaude.com.br/public/plans/785e7385-53b8-4344-9f43-14cfb80bb020",
     desc: "Pronto atendimento 24h sem carência e sem coparticipação.",
     features: [
       "Pronto Atendimento 24h — sempre sem carência",
@@ -289,6 +291,8 @@ const PLAN_TIERS = [
     name: "Intermediário",
     individualPrice: 39.9,
     familyPrice: 69.9,
+    individualUrl: "https://app.nextgosaude.com.br/public/plans/2dd03547-e685-4ccf-9add-5ffa0cfb4447",
+    familyUrl: "https://app.nextgosaude.com.br/public/plans/91940bc3-9731-4b67-8a47-30adb92a0c57",
     desc: "Tudo do Básico com benefícios ampliados, sem carência nem coparticipação.",
     features: [
       "Tudo do plano Básico",
@@ -302,6 +306,8 @@ const PLAN_TIERS = [
     name: "Avançado",
     individualPrice: 49.9,
     familyPrice: 79.9,
+    individualUrl: "https://app.nextgosaude.com.br/public/plans/b7fd7961-b904-4579-9c87-23f36a98e9b9",
+    familyUrl: "https://app.nextgosaude.com.br/public/plans/adfb3809-bbc8-41b9-bcae-6dc973354999",
     desc: "Inclui especialistas — carência de 60 dias (30 dias no Familiar).",
     features: [
       "Tudo do Intermediário",
@@ -316,6 +322,8 @@ const PLAN_TIERS = [
     name: "Premium",
     individualPrice: 109.9,
     familyPrice: 359.9,
+    individualUrl: "https://app.nextgosaude.com.br/public/plans/bf9749a0-f2b8-42ea-8129-9c37de691fa5",
+    familyUrl: "https://app.nextgosaude.com.br/public/plans/76419ac0-b747-42f4-91f0-1c192140153",
     desc: "Cobertura completa sem carência, com consultas mensais inclusas.",
     features: [
       "Tudo do Avançado, sem carência",
