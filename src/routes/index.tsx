@@ -258,8 +258,7 @@ function WhyTelemedicine() {
                 ))}
               </ul>
               <a
-                href={WHATSAPP}
-                target="_blank" rel="noopener"
+                href="#planos"
                 className="mt-7 inline-flex items-center gap-2 gradient-primary text-primary-foreground font-semibold px-6 py-3 rounded-full shadow-soft hover:scale-[1.02] transition"
               >
                 {c.cta} →
@@ -277,6 +276,8 @@ const PLAN_TIERS = [
     name: "Básico",
     individualPrice: 29.9,
     familyPrice: 59.9,
+    individualUrl: "https://app.nextgosaude.com.br/public/plans/259598e8-8f3d-47ad-bcc9-5d8f0e61ce61",
+    familyUrl: "https://app.nextgosaude.com.br/public/plans/785e7385-53b8-4344-9f43-14cfb80bb020",
     desc: "Pronto atendimento 24h sem carência e sem coparticipação.",
     features: [
       "Pronto Atendimento 24h — sempre sem carência",
@@ -290,6 +291,8 @@ const PLAN_TIERS = [
     name: "Intermediário",
     individualPrice: 39.9,
     familyPrice: 69.9,
+    individualUrl: "https://app.nextgosaude.com.br/public/plans/2dd03547-e685-4ccf-9add-5ffa0cfb4447",
+    familyUrl: "https://app.nextgosaude.com.br/public/plans/91940bc3-9731-4b67-8a47-30adb92a0c57",
     desc: "Tudo do Básico com benefícios ampliados, sem carência nem coparticipação.",
     features: [
       "Tudo do plano Básico",
@@ -303,6 +306,8 @@ const PLAN_TIERS = [
     name: "Avançado",
     individualPrice: 49.9,
     familyPrice: 79.9,
+    individualUrl: "https://app.nextgosaude.com.br/public/plans/b7fd7961-b904-4579-9c87-23f36a98e9b9",
+    familyUrl: "https://app.nextgosaude.com.br/public/plans/adfb3809-bbc8-41b9-bcae-6dc973354999",
     desc: "Inclui especialistas — carência de 60 dias (30 dias no Familiar).",
     features: [
       "Tudo do Intermediário",
@@ -317,6 +322,8 @@ const PLAN_TIERS = [
     name: "Premium",
     individualPrice: 109.9,
     familyPrice: 359.9,
+    individualUrl: "https://app.nextgosaude.com.br/public/plans/bf9749a0-f2b8-42ea-8129-9c37de691fa5",
+    familyUrl: "https://app.nextgosaude.com.br/public/plans/76419ac0-b747-42f4-91f0-1c192140153",
     desc: "Cobertura completa sem carência, com consultas mensais inclusas.",
     features: [
       "Tudo do Avançado, sem carência",
@@ -344,25 +351,40 @@ function Pricing() {
           </p>
         </div>
 
-        <div className="mt-8 flex justify-center">
-          <div className="inline-flex p-1 rounded-full bg-muted border border-border">
+        <div className="mt-8 flex flex-col items-center gap-2">
+          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Escolha o tipo de plano
+          </span>
+          <div
+            role="tablist"
+            aria-label="Tipo de plano"
+            className="relative inline-flex p-1.5 rounded-full bg-muted border-2 border-primary/30 shadow-soft"
+          >
             {([
               { key: "individual", label: "Individual" },
               { key: "familiar", label: "Familiar (até 4 vidas)" },
-            ] as const).map(opt => (
-              <button
-                key={opt.key}
-                onClick={() => setAudience(opt.key)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition ${
-                  audience === opt.key
-                    ? "gradient-primary text-primary-foreground shadow-soft"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {opt.label}
-              </button>
-            ))}
+            ] as const).map(opt => {
+              const active = audience === opt.key;
+              return (
+                <button
+                  key={opt.key}
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => setAudience(opt.key)}
+                  className={`relative z-10 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+                    active
+                      ? "gradient-primary text-primary-foreground shadow-soft scale-[1.02]"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              );
+            })}
           </div>
+          <span className="text-xs text-muted-foreground mt-1">
+            ← Clique para alternar entre Individual e Familiar →
+          </span>
         </div>
 
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -393,7 +415,7 @@ function Pricing() {
                   {audience === "individual" ? "por vida" : "para até 4 vidas"}
                 </p>
                 <a
-                  href={WHATSAPP_SUBSCRIBE}
+                  href={audience === "individual" ? p.individualUrl : p.familyUrl}
                   target="_blank" rel="noopener"
                   className={`mt-6 block text-center px-5 py-3 rounded-full font-semibold transition ${
                     p.highlight ? "gradient-primary text-primary-foreground shadow-soft hover:scale-[1.02]" : "bg-foreground text-background hover:opacity-90"
