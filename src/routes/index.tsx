@@ -19,9 +19,9 @@ import partnerCmn from "@/assets/partners/cmn-guanabara.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Next Go — Telemedicina 24h | Saúde na palma da mão" },
-      { name: "description", content: "Telemedicina 24h com médicos online imediatos e clube de descontos em farmácia. Assine a Next Go e tenha saúde na palma da mão." },
-      { property: "og:title", content: "Next Go — Telemedicina 24h" },
+      { title: "Next Go Saúde — Telemedicina 24h | Saúde na palma da mão" },
+      { name: "description", content: "Telemedicina 24h com médicos online imediatos e clube de descontos em farmácia. Assine a Next Go Saúde e tenha saúde na palma da mão." },
+      { property: "og:title", content: "Next Go Saúde — Telemedicina 24h" },
       { property: "og:description", content: "Médico online em até 20 minutos, sem carência. Planos individuais e familiares." },
       { property: "og:type", content: "website" },
     ],
@@ -93,7 +93,7 @@ function Hero() {
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-xl">
             Médico online imediato, receitas digitais e clube de descontos em farmácia.
-            A Next Go coloca a sua saúde na palma da mão — para você e toda a sua família.
+            A Next Go Saúde coloca a sua saúde na palma da mão — para você e toda a sua família.
           </p>
           <ul className="mt-6 flex flex-wrap gap-3">
             {quick.map(q => (
@@ -114,7 +114,7 @@ function Hero() {
             <div className="flex -space-x-2">
               {[0,1,2,3].map(i => <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gradient-to-br from-primary to-secondary" />)}
             </div>
-            <span><strong className="text-foreground">+50 mil</strong> brasileiros já cuidam da saúde com a Next Go</span>
+            <span><strong className="text-foreground">+50 mil</strong> brasileiros já cuidam da saúde com a Next Go Saúde</span>
           </div>
         </div>
         <div className="relative">
@@ -197,8 +197,8 @@ function WhyTelemedicine() {
     {
       icon: ShieldPlus,
       kicker: "Já tem plano de saúde?",
-      title: "Use a Next Go como complemento",
-      desc: "A Next Go é o complemento inteligente que seu plano não oferece.",
+      title: "Use a Next Go Saúde como complemento",
+      desc: "A Next Go Saúde é o complemento inteligente que seu plano não oferece.",
       bullets: [
         "Atendimento 24h sem coparticipação — economize nas urgências",
         "Clínico geral e pediatra em minutos, sem esperar meses por agendamento",
@@ -228,7 +228,7 @@ function WhyTelemedicine() {
       <div className="mx-auto max-w-7xl px-5">
         <div className="text-center max-w-2xl mx-auto">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">Por que ter telemedicina?</span>
-          <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">Por que assinar a Next Go?</h2>
+          <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">Por que assinar a Next Go Saúde?</h2>
           <p className="mt-4 text-muted-foreground text-lg">
             Ter acesso a médico 24 horas muda a forma como você cuida da sua saúde — com ou sem plano de saúde.
           </p>
@@ -470,7 +470,7 @@ function Footer() {
           <p className="mt-4 text-sm opacity-70 max-w-sm">
             Telemedicina 24h para você e sua família. Saúde na palma da mão, com tecnologia, acolhimento e segurança.
           </p>
-          <p className="mt-4 text-xs opacity-60">CNPJ 00.000.000/0001-00 · Next Go Telemedicina LTDA</p>
+          <p className="mt-4 text-xs opacity-60">CNPJ 00.000.000/0001-00 · Next Go Saúde Telemedicina LTDA</p>
         </div>
         <div>
           <h3 className="font-semibold mb-3">Navegue</h3>
@@ -491,7 +491,7 @@ function Footer() {
         </div>
       </div>
       <div className="mx-auto max-w-7xl px-5 mt-12 pt-6 border-t border-white/10 text-xs opacity-60 flex flex-wrap justify-between gap-2">
-        <span>© {new Date().getFullYear()} Next Go Telemedicina. Todos os direitos reservados.</span>
+        <span>© {new Date().getFullYear()} Next Go Saúde Telemedicina. Todos os direitos reservados.</span>
         <span>Em conformidade com CFM 2026 e LGPD.</span>
       </div>
     </footer>
