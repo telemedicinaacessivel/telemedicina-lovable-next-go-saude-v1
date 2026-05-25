@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const WA_BASE = "https://wa.me/5511999999999";
+const WA_BASE = "https://wa.me/5531991150689";
 const WHATSAPP = `${WA_BASE}?text=Quero%20conhecer%20a%20Next%20Go%20Telemedicina`;
 const WHATSAPP_SUBSCRIBE = `${WA_BASE}?text=Quero%20assinar%20a%20Next%20Go%20Telemedicina`;
 
