@@ -258,8 +258,7 @@ function WhyTelemedicine() {
                 ))}
               </ul>
               <a
-                href={WHATSAPP}
-                target="_blank" rel="noopener"
+                href="#planos"
                 className="mt-7 inline-flex items-center gap-2 gradient-primary text-primary-foreground font-semibold px-6 py-3 rounded-full shadow-soft hover:scale-[1.02] transition"
               >
                 {c.cta} →
