@@ -132,7 +132,7 @@ function Hero() {
             </div>
             <div>
               <p className="text-xs text-muted-foreground">Tempo médio</p>
-              <p className="font-bold text-sm">Consulta em 4 minutos</p>
+              <p className="font-bold text-sm">Consulta em 8 minutos</p>
             </div>
           </div>
         </div>
