@@ -84,7 +84,7 @@ function Hero() {
       <div className="mx-auto max-w-7xl px-5 grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary bg-accent/60 px-3 py-1.5 rounded-full">
-            <ShieldCheck className="w-3.5 h-3.5" /> CFM 2026 · LGPD · SSL
+            <ShieldCheck className="w-3.5 h-3.5" /> Representante oficial autorizado
           </span>
           <h1 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[1.05]">
             Telemedicina 24h <br />
