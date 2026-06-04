@@ -521,7 +521,7 @@ function Footer() {
         </div>
       </div>
       <div className="mx-auto max-w-7xl px-5 mt-12 pt-6 border-t border-white/10 text-xs opacity-60 flex flex-wrap justify-between gap-2">
-        <span>© {new Date().getFullYear()} Next Go Saúde Telemedicina. Todos os direitos reservados.</span>
+        <span>© {new Date().getFullYear()} Next Go Saúde Telemedicina. Todos os direitos reservados. Franqueado credenciado oficial.</span>
         <span>Em conformidade com CFM 2026 e LGPD.</span>
       </div>
     </footer>
