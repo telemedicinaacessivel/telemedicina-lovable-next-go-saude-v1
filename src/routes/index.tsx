@@ -74,9 +74,10 @@ function Navbar() {
 
 function Hero() {
   const quick = [
-    { icon: Sparkles, label: "Sem carência" },
-    { icon: Clock, label: "Atendimento em 20min" },
-    { icon: BadgeCheck, label: "Receitas digitais válidas" },
+    { icon: Sparkles, label: "Sem carência no Pronto Atendimento" },
+    { icon: Clock, label: "Atendimento em 8 min" },
+    { icon: BadgeCheck, label: "Receitas digitais" },
+    { icon: BadgeCheck, label: "Atestados médicos" },
   ];
   return (
     <section className="relative pt-28 md:pt-36 pb-20 gradient-hero overflow-hidden">
