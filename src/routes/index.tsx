@@ -405,7 +405,11 @@ function Pricing() {
                   </span>
                 )}
                 <h3 className="font-display text-2xl font-bold">{p.name}</h3>
-                <p className="text-sm text-muted-foreground mt-1 min-h-[3rem]">{p.desc}</p>
+                <p className="text-sm text-muted-foreground mt-1 min-h-[3rem]">
+                  {audience === "individual"
+                    ? ((p as { individualDesc?: string }).individualDesc ?? p.desc)
+                    : ((p as { familyDesc?: string }).familyDesc ?? p.desc)}
+                </p>
                 <div className="mt-5 flex items-baseline gap-1">
                   <span className="text-sm font-semibold text-muted-foreground">R$</span>
                   <span className="font-display text-5xl font-extrabold">
