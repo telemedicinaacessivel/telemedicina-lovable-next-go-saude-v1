@@ -497,6 +497,9 @@ function Footer() {
           <p className="mt-4 text-sm opacity-70 max-w-sm">
             Telemedicina 24h para você e sua família. Saúde na palma da mão, com tecnologia, acolhimento e segurança.
           </p>
+          <p className="mt-3 text-xs opacity-70 max-w-sm">
+            Somos franqueados credenciados oficiais da Next Go Saúde, autorizados a comercializar os planos de telemedicina.
+          </p>
           <p className="mt-4 text-xs opacity-60">CNPJ 00.000.000/0001-00 · Next Go Saúde Telemedicina LTDA</p>
         </div>
         <div>
