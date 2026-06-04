@@ -152,9 +152,9 @@ const PARTNERS = [
 
 function Benefits() {
   const items = [
-    { icon: Sparkles, title: "Sem carência, sem fidelidade", desc: "Acesso imediato após a primeira mensalidade. Cancele quando quiser, sem multa ou burocracia." },
-    { icon: Pill, title: "Clube de Descontos em Farmácia", desc: "Rede credenciada com até 70% de desconto em medicamentos de marca, genéricos e similares." },
-    { icon: Stethoscope, title: "Médico 24h, todos os dias", desc: "Acesso ilimitado a clínicos gerais, pediatras e especialistas, sem carência e sem limite de consultas." },
+    { icon: Sparkles, title: "Pronto Atendimento sem carência", desc: "O Pronto Atendimento 24h libera assim que a primeira mensalidade é confirmada. Consultas com especialistas podem ter carência, que varia conforme o plano escolhido — e o Premium é totalmente sem carência." },
+    { icon: Pill, title: "Clube de Descontos para o dia a dia", desc: "Economize em medicamentos, exames laboratoriais e de imagem, academias, cinemas e lojas. Mais de 30 mil estabelecimentos parceiros em todo o Brasil, com descontos de até 80%." },
+    { icon: Stethoscope, title: "Pronto Atendimento 24h, todos os dias", desc: "Clínico geral e pediatra disponíveis 24h por dia para urgências não emergenciais, sem limite de uso. Mais de 30 especialidades disponíveis por agendamento." },
   ];
   return (
     <section id="beneficios" className="py-20 md:py-28">
