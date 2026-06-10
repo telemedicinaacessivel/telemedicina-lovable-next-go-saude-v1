@@ -15,6 +15,10 @@ import partnerPagueMenos from "@/assets/partners/pague-menos.png";
 import partnerSaoMarcos from "@/assets/partners/sao-marcos.png";
 import partnerHermesPardini from "@/assets/partners/hermes-pardini.png";
 import partnerCmn from "@/assets/partners/cmn-guanabara.png";
+import face1 from "@/assets/faces/face1.jpg";
+import face2 from "@/assets/faces/face2.jpg";
+import face3 from "@/assets/faces/face3.jpg";
+import face4 from "@/assets/faces/face4.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -113,7 +117,9 @@ function Hero() {
           </div>
           <div className="mt-8 flex items-center gap-5 text-xs text-muted-foreground">
             <div className="flex -space-x-2">
-              {[0,1,2,3].map(i => <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gradient-to-br from-primary to-secondary" />)}
+              {[face1, face2, face3, face4].map((src, i) => (
+                <img key={i} src={src} alt="" className="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" width={32} height={32} />
+              ))}
             </div>
             <span><strong className="text-foreground">+50 mil</strong> brasileiros já cuidam da saúde com a Next Go Saúde</span>
           </div>
