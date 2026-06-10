@@ -370,7 +370,7 @@ function Pricing() {
           >
             {([
               { key: "individual", label: "Individual" },
-              { key: "familiar", label: "Familiar (até 4 vidas)" },
+              { key: "familiar", label: "Familiar" },
             ] as const).map(opt => {
               const active = audience === opt.key;
               return (
