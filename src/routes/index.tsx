@@ -160,7 +160,7 @@ function Benefits() {
   const items = [
     { icon: Sparkles, title: "Pronto Atendimento sem carência", desc: "O Pronto Atendimento 24h libera assim que a primeira mensalidade é confirmada. Consultas com especialistas podem ter carência, que varia conforme o plano escolhido — e o Premium é totalmente sem carência." },
     { icon: Pill, title: "Clube de Descontos para o dia a dia", desc: "Economize em medicamentos, exames laboratoriais e de imagem, academias, cinemas e lojas. Mais de 30 mil estabelecimentos parceiros em todo o Brasil, com descontos de até 80%." },
-    { icon: Stethoscope, title: "Pronto Atendimento 24h, todos os dias", desc: "Clínico geral e pediatra disponíveis 24h por dia para urgências não emergenciais, sem limite de uso. Mais de 30 especialidades disponíveis por agendamento." },
+    { icon: Stethoscope, title: "Mais de 30 especialidades", desc: "Além de clínico geral à sua disposição em tempo integral, todos os dias do ano, você conta com uma rede de especialistas dentre psicólogos, psiquiatras, dermatologistas, pediatras, nutricionistas, endocrinologista, geriatras, cardiologistas e muitas outras." },
   ];
   return (
     <section id="beneficios" className="py-20 md:py-28">
