@@ -337,7 +337,7 @@ const PLAN_TIERS = [
       "Tudo do Avançado, sem carência",
       "2 consultas/mês com Psicologia inclusas por vida",
       "1 consulta a cada 90 dias com Nutrição inclusa por vida",
-      "Coparticipação de R$ 29,90 apenas em consultas extras de Nutrição, Psicologia, Psiquiatria e Dermatologia",
+      "Coparticipação de R$29,90 apenas em Psicologia",
     ],
     highlight: false,
   },
