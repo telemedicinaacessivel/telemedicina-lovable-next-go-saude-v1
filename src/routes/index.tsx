@@ -321,7 +321,7 @@ const PLAN_TIERS = [
       "Tudo do Intermediário",
       "Acesso a 30+ especialidades médicas",
       "Encaminhamento para especialistas",
-      "Coparticipação de R$ 69,90 apenas em Nutrição, Psicologia, Psiquiatria e Dermatologia",
+      "Coparticipação de R$69,90 apenas em Nutrição e Psicologia",
     ],
     highlight: true,
     badge: "Mais popular",
