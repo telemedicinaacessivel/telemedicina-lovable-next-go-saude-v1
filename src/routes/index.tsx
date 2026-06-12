@@ -132,15 +132,6 @@ function Hero() {
             width={1280} height={1280}
             className="relative rounded-3xl shadow-soft w-full h-auto object-cover"
           />
-          <div className="absolute -bottom-5 -left-5 bg-card border border-border rounded-2xl p-4 shadow-card flex items-center gap-3 max-w-[240px]">
-            <div className="w-10 h-10 grid place-items-center rounded-full bg-primary/10 text-primary">
-              <Clock className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="text-xs text-muted-foreground">Tempo médio</p>
-              <p className="font-bold text-sm">Fila de espera de 8 minutos</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
