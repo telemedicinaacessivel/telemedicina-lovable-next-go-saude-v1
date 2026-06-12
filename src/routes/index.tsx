@@ -498,7 +498,7 @@ function Footer() {
           <p className="mt-3 text-xs opacity-70 max-w-sm">
             Somos franqueados credenciados oficiais da Next Go Saúde, autorizados a comercializar os planos de telemedicina.
           </p>
-          <p className="mt-4 text-xs opacity-60">CNPJ 00.000.000/0001-00 · Next Go Saúde Telemedicina LTDA</p>
+          <p className="mt-4 text-xs opacity-60">CNPJ 50.452.066/0001-90 · Akvo Serviços Administrativos</p>
         </div>
         <div>
           <h3 className="font-semibold mb-3">Navegue</h3>
