@@ -409,6 +409,7 @@ const PLAN_TIERS = [
 ];
 
 function Pricing() {
+  const { requestLead } = useLeadCapture();
   const [audience, setAudience] = useState<"individual" | "familiar">("individual");
   return (
     <section id="planos" className="py-20 md:py-28">
