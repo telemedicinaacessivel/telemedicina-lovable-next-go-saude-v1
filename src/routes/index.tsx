@@ -28,14 +28,14 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Next Go Saúde — Telemedicina 24h" },
       { property: "og:description", content: "Médico online em até 20 minutos, sem carência. Planos individuais e familiares." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
-      { property: "og:image", content: "/og-image.jpg" },
+      { property: "og:url", content: "https://telemedicinaacessivel.com.br/" },
+      { property: "og:image", content: "https://telemedicinaacessivel.com.br/og-image.jpg" },
       { name: "twitter:title", content: "Next Go Saúde — Telemedicina 24h" },
       { name: "twitter:description", content: "Médico online em até 20 minutos, sem carência. Planos individuais e familiares." },
-      { name: "twitter:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "https://telemedicinaacessivel.com.br/og-image.jpg" },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: "https://telemedicinaacessivel.com.br/" },
     ],
     scripts: [
       {
@@ -48,7 +48,7 @@ export const Route = createFileRoute("/")({
               name: "Next Go Saúde",
               alternateName: "Akvo Serviços Administrativos",
               description: "Telemedicina 24h com médicos online imediatos e clube de descontos em farmácia.",
-              url: "/",
+              url: "https://telemedicinaacessivel.com.br/",
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "Suporte ao Cliente",
