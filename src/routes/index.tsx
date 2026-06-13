@@ -109,6 +109,7 @@ const WHATSAPP = `${WA_BASE}?text=Quero%20conhecer%20a%20Next%20Go%20Telemedicin
 const WHATSAPP_SUBSCRIBE = `${WA_BASE}?text=Quero%20assinar%20a%20Next%20Go%20Telemedicina`;
 
 function Navbar() {
+  const { requestLead } = useLeadCapture();
   const [open, setOpen] = useState(false);
   const links = [
     { href: "#beneficios-b2c", label: "Por que assinar" },
