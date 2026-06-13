@@ -7,7 +7,7 @@ import {
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
-import { LeadCaptureProvider, useLeadCapture } from "@/components/LeadCaptureDialog";
+import { useLeadCapture } from "@/components/LeadCaptureDialog";
 import heroDoctor from "@/assets/hero-doctor.jpg";
 import logo from "@/assets/nextgo-logo.png";
 import partnerRaia from "@/assets/partners/droga-raia.png";
