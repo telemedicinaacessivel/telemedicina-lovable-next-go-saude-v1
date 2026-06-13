@@ -492,15 +492,18 @@ function Pricing() {
                 <p className="mt-1 text-xs text-muted-foreground">
                   {audience === "individual" ? "por vida" : "para até 4 vidas"}
                 </p>
-                <a
-                  href={audience === "individual" ? p.individualUrl : p.familyUrl}
-                  target="_blank" rel="noopener"
-                  className={`mt-6 block text-center px-5 py-3 rounded-full font-semibold transition ${
+                <button
+                  type="button"
+                  onClick={() => requestLead(
+                    audience === "individual" ? p.individualUrl : p.familyUrl,
+                    `plan_${p.name.toLowerCase()}_${audience}`,
+                  )}
+                  className={`mt-6 block w-full text-center px-5 py-3 rounded-full font-semibold transition ${
                     p.highlight ? "gradient-primary text-primary-foreground shadow-soft hover:scale-[1.02]" : "bg-foreground text-background hover:opacity-90"
                   }`}
                 >
                   Quero assinar →
-                </a>
+                </button>
                 <ul className="mt-6 space-y-3">
                   {p.features.map(f => (
                     <li key={f} className="flex gap-2 text-sm">
