@@ -184,9 +184,9 @@ function Hero() {
             <a href="#planos" className="pulse-cta gradient-primary text-primary-foreground font-semibold px-7 py-4 rounded-full shadow-soft hover:scale-[1.02] transition">
               Assinar Agora
             </a>
-            <a href={WHATSAPP} target="_blank" rel="noopener" className="inline-flex items-center gap-2 border border-border bg-card px-6 py-4 rounded-full font-semibold hover:bg-accent transition">
+            <button onClick={() => requestLead(WHATSAPP, "hero_whatsapp")} className="inline-flex items-center gap-2 border border-border bg-card px-6 py-4 rounded-full font-semibold hover:bg-accent transition">
               <MessageCircle className="w-4 h-4" /> Falar com a equipe
-            </a>
+            </button>
           </div>
           <div className="mt-8 flex items-center gap-5 text-xs text-muted-foreground">
             <div className="flex -space-x-2">
