@@ -28,6 +28,74 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Next Go Saúde — Telemedicina 24h" },
       { property: "og:description", content: "Médico online em até 20 minutos, sem carência. Planos individuais e familiares." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { property: "og:image", content: "/og-image.jpg" },
+      { name: "twitter:title", content: "Next Go Saúde — Telemedicina 24h" },
+      { name: "twitter:description", content: "Médico online em até 20 minutos, sem carência. Planos individuais e familiares." },
+      { name: "twitter:image", content: "/og-image.jpg" },
+    ],
+    links: [
+      { rel: "canonical", href: "/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              name: "Next Go Saúde",
+              alternateName: "Akvo Serviços Administrativos",
+              description: "Telemedicina 24h com médicos online imediatos e clube de descontos em farmácia.",
+              url: "/",
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Suporte ao Cliente",
+                email: "telemedicinaacessivel@gmail.com",
+                availableLanguage: ["Portuguese"],
+              },
+            },
+            {
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "O que é a NextGo Saúde?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "A NextGo Saúde é a sua plataforma de telemedicina completa, que te conecta com médicos de diversas especialidades, psicólogos e nutricionistas de onde você estiver, a hora que precisar.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Como funciona a telemedicina da NextGo Saúde?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "A telemedicina é como uma consulta médica normal, só que realizada à distância usando a internet. Você pode conversar com médicos, tirar dúvidas, receber diagnósticos e até acompanhamento médico sem sair de casa.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Quais serviços estão incluídos nos planos da NextGo Saúde?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Nossos planos oferecem Pronto Atendimento 24h, agendamento de consultas com mais de 30 especialidades médicas, Telepsicologia e Telenutrição, emissão de receitas, atestados e pedidos de exame, e Clube de Descontos com até 80% em medicamentos.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Como funciona o pronto atendimento?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "É só acessar a plataforma pelo site e você será atendido em poucos minutos por um médico. O tempo de espera médio é de apenas 8 minutos!",
+                  },
+                },
+              ],
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: Index,
