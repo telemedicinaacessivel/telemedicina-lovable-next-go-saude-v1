@@ -23,15 +23,17 @@ import face4 from "@/assets/faces/face4.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Next Go Saúde — Telemedicina 24h | Saúde na palma da mão" },
-      { name: "description", content: "Telemedicina 24h com médicos online imediatos e clube de descontos em farmácia. Assine a Next Go Saúde e tenha saúde na palma da mão." },
-      { property: "og:title", content: "Next Go Saúde — Telemedicina 24h" },
-      { property: "og:description", content: "Médico online em até 20 minutos, sem carência. Planos individuais e familiares." },
+      { title: "Médico Online 24h e 30+ Especialidades | Next Go Saúde" },
+      { name: "description", content: "Consultas com clínico geral e especialistas sem sair de casa. Clube de descontos em farmácias e exames de até 80%. O cuidado que sua família merece. Confira!" },
+      { property: "og:title", content: "Médico Online 24h e 30+ Especialidades | Next Go Saúde" },
+      { property: "og:description", content: "Consultas com clínico geral e especialistas sem sair de casa. Clube de descontos em farmácias e exames de até 80%. O cuidado que sua família merece. Confira!" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://telemedicinaacessivel.com.br/" },
       { property: "og:image", content: "https://telemedicinaacessivel.com.br/og-image.jpg" },
-      { name: "twitter:title", content: "Next Go Saúde — Telemedicina 24h" },
-      { name: "twitter:description", content: "Médico online em até 20 minutos, sem carência. Planos individuais e familiares." },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:title", content: "Médico Online 24h e 30+ Especialidades | Next Go Saúde" },
+      { name: "twitter:description", content: "Consultas com clínico geral e especialistas sem sair de casa. Clube de descontos em farmácias e exames de até 80%. O cuidado que sua família merece. Confira!" },
       { name: "twitter:image", content: "https://telemedicinaacessivel.com.br/og-image.jpg" },
     ],
     links: [
