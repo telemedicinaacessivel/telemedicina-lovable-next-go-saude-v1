@@ -149,6 +149,7 @@ function Navbar() {
 }
 
 function Hero() {
+  const { requestLead } = useLeadCapture();
   const quick = [
     { icon: Sparkles, label: "Sem carência no Pronto Atendimento" },
     { icon: Clock, label: "Atendimento em 8 min" },
