@@ -603,13 +603,23 @@ function Footer() {
   );
 }
 
-function FloatingWhats() {
+function FooterWhatsLink() {
+  const { requestLead } = useLeadCapture();
   return (
-    <a href={WHATSAPP} target="_blank" rel="noopener"
+    <button onClick={() => requestLead(WHATSAPP, "footer_whatsapp")} className="hover:underline text-left">
+      WhatsApp
+    </button>
+  );
+}
+
+function FloatingWhats() {
+  const { requestLead } = useLeadCapture();
+  return (
+    <button onClick={() => requestLead(WHATSAPP, "floating_whatsapp")}
        className="fixed bottom-5 right-5 z-50 w-14 h-14 grid place-items-center rounded-full bg-[var(--whatsapp)] text-white shadow-soft pulse-cta hover:scale-105 transition"
        aria-label="Falar no WhatsApp">
       <MessageCircle className="w-6 h-6" />
-    </a>
+    </button>
   );
 }
 
