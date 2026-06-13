@@ -72,8 +72,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Next Go Saúde — Telemedicina 24h" },
-      { name: "description", content: "Telemedicina 24h com médicos online imediatos e clube de descontos em farmácia. Saúde na palma da mão." },
+      { title: "Médico Online 24h e 30+ Especialidades | Next Go Saúde" },
+      { name: "description", content: "Consultas com clínico geral e especialistas sem sair de casa. Clube de descontos em farmácias e exames de até 80%. O cuidado que sua família merece. Confira!" },
       { name: "author", content: "Akvo Serviços Administrativos" },
       { property: "og:site_name", content: "Next Go Saúde" },
       { property: "og:type", content: "website" },
