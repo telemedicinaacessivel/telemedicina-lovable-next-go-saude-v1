@@ -127,9 +127,9 @@ function Navbar() {
             <li key={l.href}><a className="hover:text-foreground transition" href={l.href}>{l.label}</a></li>
           ))}
         </ul>
-        <a href={WHATSAPP} target="_blank" rel="noopener" className="hidden md:inline-flex items-center gap-2 bg-[var(--whatsapp)] text-white px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition shadow-soft">
+        <button onClick={() => requestLead(WHATSAPP, "navbar_whatsapp")} className="hidden md:inline-flex items-center gap-2 bg-[var(--whatsapp)] text-white px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition shadow-soft">
           <MessageCircle className="w-4 h-4" /> WhatsApp
-        </a>
+        </button>
         <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X /> : <Menu />}
         </button>
