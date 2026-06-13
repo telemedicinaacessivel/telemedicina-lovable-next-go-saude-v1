@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /design-system
 Disallow: /manual-marca
 
-Sitemap:
+Sitemap: https://telemedicinaacessivel.com.br/sitemap.xml
