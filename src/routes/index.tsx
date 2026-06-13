@@ -625,17 +625,15 @@ function FloatingWhats() {
 
 function Index() {
   return (
-    <LeadCaptureProvider>
-      <main className="min-h-screen">
-        <Navbar />
-        <Hero />
-        <Benefits />
-        <WhyTelemedicine />
-        <Pricing />
-        <FAQ />
-        <Footer />
-        <FloatingWhats />
-      </main>
-    </LeadCaptureProvider>
+    <main className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <Benefits />
+      <WhyTelemedicine />
+      <Pricing />
+      <FAQ />
+      <Footer />
+      <FloatingWhats />
+    </main>
   );
 }
