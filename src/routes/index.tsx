@@ -7,6 +7,7 @@ import {
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
+import { LeadCaptureProvider, useLeadCapture } from "@/components/LeadCaptureDialog";
 import heroDoctor from "@/assets/hero-doctor.jpg";
 import logo from "@/assets/nextgo-logo.png";
 import partnerRaia from "@/assets/partners/droga-raia.png";
@@ -108,6 +109,7 @@ const WHATSAPP = `${WA_BASE}?text=Quero%20conhecer%20a%20Next%20Go%20Telemedicin
 const WHATSAPP_SUBSCRIBE = `${WA_BASE}?text=Quero%20assinar%20a%20Next%20Go%20Telemedicina`;
 
 function Navbar() {
+  const { requestLead } = useLeadCapture();
   const [open, setOpen] = useState(false);
   const links = [
     { href: "#beneficios-b2c", label: "Por que assinar" },
@@ -125,9 +127,9 @@ function Navbar() {
             <li key={l.href}><a className="hover:text-foreground transition" href={l.href}>{l.label}</a></li>
           ))}
         </ul>
-        <a href={WHATSAPP} target="_blank" rel="noopener" className="hidden md:inline-flex items-center gap-2 bg-[var(--whatsapp)] text-white px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition shadow-soft">
+        <button onClick={() => requestLead(WHATSAPP, "navbar_whatsapp")} className="hidden md:inline-flex items-center gap-2 bg-[var(--whatsapp)] text-white px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition shadow-soft">
           <MessageCircle className="w-4 h-4" /> WhatsApp
-        </a>
+        </button>
         <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X /> : <Menu />}
         </button>
@@ -137,9 +139,9 @@ function Navbar() {
           {links.map(l => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-sm font-medium">{l.label}</a>
           ))}
-          <a href={WHATSAPP} className="inline-flex items-center gap-2 bg-[var(--whatsapp)] text-white px-4 py-2 rounded-full text-sm font-semibold">
+          <button onClick={() => { setOpen(false); requestLead(WHATSAPP, "navbar_mobile_whatsapp"); }} className="inline-flex items-center gap-2 bg-[var(--whatsapp)] text-white px-4 py-2 rounded-full text-sm font-semibold">
             <MessageCircle className="w-4 h-4" /> WhatsApp
-          </a>
+          </button>
         </div>
       )}
     </header>
@@ -147,6 +149,7 @@ function Navbar() {
 }
 
 function Hero() {
+  const { requestLead } = useLeadCapture();
   const quick = [
     { icon: Sparkles, label: "Sem carência no Pronto Atendimento" },
     { icon: Clock, label: "Atendimento em 8 min" },
@@ -181,9 +184,9 @@ function Hero() {
             <a href="#planos" className="pulse-cta gradient-primary text-primary-foreground font-semibold px-7 py-4 rounded-full shadow-soft hover:scale-[1.02] transition">
               Assinar Agora
             </a>
-            <a href={WHATSAPP} target="_blank" rel="noopener" className="inline-flex items-center gap-2 border border-border bg-card px-6 py-4 rounded-full font-semibold hover:bg-accent transition">
+            <button onClick={() => requestLead(WHATSAPP, "hero_whatsapp")} className="inline-flex items-center gap-2 border border-border bg-card px-6 py-4 rounded-full font-semibold hover:bg-accent transition">
               <MessageCircle className="w-4 h-4" /> Falar com a equipe
-            </a>
+            </button>
           </div>
           <div className="mt-8 flex items-center gap-5 text-xs text-muted-foreground">
             <div className="flex -space-x-2">
@@ -406,6 +409,7 @@ const PLAN_TIERS = [
 ];
 
 function Pricing() {
+  const { requestLead } = useLeadCapture();
   const [audience, setAudience] = useState<"individual" | "familiar">("individual");
   return (
     <section id="planos" className="py-20 md:py-28">
@@ -488,15 +492,18 @@ function Pricing() {
                 <p className="mt-1 text-xs text-muted-foreground">
                   {audience === "individual" ? "por vida" : "para até 4 vidas"}
                 </p>
-                <a
-                  href={audience === "individual" ? p.individualUrl : p.familyUrl}
-                  target="_blank" rel="noopener"
-                  className={`mt-6 block text-center px-5 py-3 rounded-full font-semibold transition ${
+                <button
+                  type="button"
+                  onClick={() => requestLead(
+                    audience === "individual" ? p.individualUrl : p.familyUrl,
+                    `plan_${p.name.toLowerCase()}_${audience}`,
+                  )}
+                  className={`mt-6 block w-full text-center px-5 py-3 rounded-full font-semibold transition ${
                     p.highlight ? "gradient-primary text-primary-foreground shadow-soft hover:scale-[1.02]" : "bg-foreground text-background hover:opacity-90"
                   }`}
                 >
                   Quero assinar →
-                </a>
+                </button>
                 <ul className="mt-6 space-y-3">
                   {p.features.map(f => (
                     <li key={f} className="flex gap-2 text-sm">
@@ -581,7 +588,7 @@ function Footer() {
         <div>
           <h3 className="font-semibold mb-3">Contato e legal</h3>
           <ul className="space-y-2 text-sm opacity-80">
-            <li><a href={WHATSAPP}>WhatsApp</a></li>
+            <li><FooterWhatsLink /></li>
             <li><a href="mailto:telemedicinaacessivel@gmail.com">telemedicinaacessivel@gmail.com</a></li>
             <li><a href="#">Termos de Uso</a></li>
             <li><a href="#">Política de Privacidade</a></li>
@@ -596,28 +603,39 @@ function Footer() {
   );
 }
 
-function FloatingWhats() {
+function FooterWhatsLink() {
+  const { requestLead } = useLeadCapture();
   return (
-    <a href={WHATSAPP} target="_blank" rel="noopener"
+    <button onClick={() => requestLead(WHATSAPP, "footer_whatsapp")} className="hover:underline text-left">
+      WhatsApp
+    </button>
+  );
+}
+
+function FloatingWhats() {
+  const { requestLead } = useLeadCapture();
+  return (
+    <button onClick={() => requestLead(WHATSAPP, "floating_whatsapp")}
        className="fixed bottom-5 right-5 z-50 w-14 h-14 grid place-items-center rounded-full bg-[var(--whatsapp)] text-white shadow-soft pulse-cta hover:scale-105 transition"
        aria-label="Falar no WhatsApp">
       <MessageCircle className="w-6 h-6" />
-    </a>
+    </button>
   );
 }
 
 function Index() {
   return (
-    <main className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <Benefits />
-      <WhyTelemedicine />
-      <Pricing />
-      <FAQ />
-      
-      <Footer />
-      <FloatingWhats />
-    </main>
+    <LeadCaptureProvider>
+      <main className="min-h-screen">
+        <Navbar />
+        <Hero />
+        <Benefits />
+        <WhyTelemedicine />
+        <Pricing />
+        <FAQ />
+        <Footer />
+        <FloatingWhats />
+      </main>
+    </LeadCaptureProvider>
   );
 }
