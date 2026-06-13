@@ -139,9 +139,9 @@ function Navbar() {
           {links.map(l => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-sm font-medium">{l.label}</a>
           ))}
-          <a href={WHATSAPP} className="inline-flex items-center gap-2 bg-[var(--whatsapp)] text-white px-4 py-2 rounded-full text-sm font-semibold">
+          <button onClick={() => { setOpen(false); requestLead(WHATSAPP, "navbar_mobile_whatsapp"); }} className="inline-flex items-center gap-2 bg-[var(--whatsapp)] text-white px-4 py-2 rounded-full text-sm font-semibold">
             <MessageCircle className="w-4 h-4" /> WhatsApp
-          </a>
+          </button>
         </div>
       )}
     </header>
