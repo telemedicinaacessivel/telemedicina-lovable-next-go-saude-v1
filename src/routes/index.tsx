@@ -512,7 +512,7 @@ function Footer() {
           <h3 className="font-semibold mb-3">Contato e legal</h3>
           <ul className="space-y-2 text-sm opacity-80">
             <li><a href={WHATSAPP}>WhatsApp</a></li>
-            <li><a href="mailto:contato@nextgo.com.br">contato@nextgo.com.br</a></li>
+            <li><a href="mailto:telemedicinaacessivel@gmail.com">telemedicinaacessivel@gmail.com</a></li>
             <li><a href="#">Termos de Uso</a></li>
             <li><a href="#">Política de Privacidade</a></li>
           </ul>
