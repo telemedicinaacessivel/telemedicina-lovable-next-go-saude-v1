@@ -30,8 +30,8 @@ export { LEAD_STORAGE_KEY };
 /**
  * Returns `requestLead(url, label)`:
  * Always navigates to `/start?next=...&label=...` (a real pageview for Ads tracking).
- * The /start page handles the final redirect — in the same tab — either by
- * auto-forwarding (when the lead is already captured) or after form submit.
+ * The /start page handles the final redirect — in the same tab — only after
+ * the user submits a valid lead form.
  */
 export function useLeadCapture() {
   const navigate = useNavigate();

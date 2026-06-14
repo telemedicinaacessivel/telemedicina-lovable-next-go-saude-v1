@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { ShieldCheck, ArrowLeft } from "lucide-react";
 import logo from "@/assets/nextgo-logo.png";
-import { getStoredLead, saveLead } from "@/components/LeadCaptureDialog";
+import { saveLead } from "@/components/LeadCaptureDialog";
 
 const MIN_FORM_TIME_MS = 1500;
 
@@ -103,22 +103,6 @@ function StartPage() {
   const openedAtRef = useRef<number>(Date.now());
 
   const safeNext = next && isSafeNext(next) ? next : "";
-
-  // If lead already exists, skip the form entirely
-  useEffect(() => {
-    const existing = getStoredLead();
-    if (existing && safeNext) {
-      // @ts-expect-error gtm dataLayer
-      window.dataLayer = window.dataLayer || [];
-      // @ts-expect-error gtm dataLayer
-      window.dataLayer.push({
-        event: "lead_redirect",
-        lead_destination: label || safeNext,
-        lead_email: existing.email,
-      });
-      openUrl(safeNext);
-    }
-  }, [safeNext, label]);
 
   // Fire a "lead_form_view" GTM event once on mount (useful for Ads conversions)
   useEffect(() => {
