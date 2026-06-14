@@ -27,34 +27,15 @@ export function saveLead(lead: StoredLead) {
 
 export { LEAD_STORAGE_KEY };
 
-function openUrl(url: string) {
-  const win = window.open(url, "_blank", "noopener,noreferrer");
-  if (!win) window.location.href = url;
-}
-
 /**
  * Returns `requestLead(url, label)`:
- * - If lead already captured → fires GTM event and opens the destination URL directly.
- * - Otherwise → navigates to `/start?next=...&label=...` (a real pageview for Ads tracking).
+ * Always navigates to `/start?next=...&label=...` (a real pageview for Ads tracking).
+ * The /start page handles the final redirect — in the same tab — either by
+ * auto-forwarding (when the lead is already captured) or after form submit.
  */
 export function useLeadCapture() {
   const navigate = useNavigate();
   const requestLead = useCallback((url: string, label?: string) => {
-    const existing = getStoredLead();
-    if (existing) {
-      if (typeof window !== "undefined") {
-        // @ts-expect-error gtm dataLayer
-        window.dataLayer = window.dataLayer || [];
-        // @ts-expect-error gtm dataLayer
-        window.dataLayer.push({
-          event: "lead_redirect",
-          lead_destination: label ?? url,
-          lead_email: existing.email,
-        });
-      }
-      openUrl(url);
-      return;
-    }
     void navigate({
       to: "/start",
       search: { next: url, label: label ?? "" },
