@@ -206,7 +206,7 @@ function StartPage() {
                 {...form.register("name")}
               />
               {form.formState.errors.name && (
-                <div className="flex items-start gap-1.5 rounded-lg bg-destructive/10 px-3 py-2 text-xs text-destructive animate-in fade-in slide-in-from-top-1 duration-200">
+                <div className="flex items-start gap-1.5 rounded-lg bg-destructive/10 px-3 py-2 text-xs text-destructive">
                   <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
                   <span>{form.formState.errors.name.message}</span>
                 </div>
