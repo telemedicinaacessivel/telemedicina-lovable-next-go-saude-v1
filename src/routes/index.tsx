@@ -395,7 +395,7 @@ const PLAN_TIERS = [
     individualPrice: 109.9,
     familyPrice: 359.9,
     individualUrl: "https://app.nextgosaude.com.br/public/plans/bf9749a0-f2b8-42ea-8129-9c37de691fa5",
-    familyUrl: "https://app.nextgosaude.com.br/public/plans/76419ac0-b747-42f4-91f0-1c192140153",
+    familyUrl: "https://app.nextgosaude.com.br/public/plans/76419ac0-b747-42f4-91f0-1c192140153c",
     individualDesc: "Sem carência e sem coparticipação. Cobertura completa com consultas inclusas.",
     familyDesc: "Sem carência e sem coparticipação. Cobertura completa com consultas inclusas.",
     features: [
