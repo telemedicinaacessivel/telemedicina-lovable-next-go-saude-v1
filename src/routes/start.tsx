@@ -6,7 +6,7 @@ import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { ShieldCheck, ArrowLeft } from "lucide-react";
+import { ShieldCheck, ArrowLeft, AlertCircle } from "lucide-react";
 import logo from "@/assets/nextgo-logo.png";
 import { saveLead } from "@/components/LeadCaptureDialog";
 
@@ -202,10 +202,14 @@ function StartPage() {
                 autoComplete="name"
                 placeholder="Maria Silva"
                 maxLength={80}
+                className="transition-all duration-200 ease-out hover:border-primary/50 focus:border-primary focus:ring-1 focus:ring-primary/20"
                 {...form.register("name")}
               />
               {form.formState.errors.name && (
-                <p className="text-xs text-destructive">{form.formState.errors.name.message}</p>
+                <div className="flex items-start gap-1.5 rounded-lg bg-destructive/10 px-3 py-2 text-xs text-destructive">
+                  <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                  <span>{form.formState.errors.name.message}</span>
+                </div>
               )}
             </div>
 
@@ -218,10 +222,14 @@ function StartPage() {
                 autoComplete="email"
                 placeholder="voce@email.com"
                 maxLength={120}
+                className="transition-all duration-200 ease-out hover:border-primary/50 focus:border-primary focus:ring-1 focus:ring-primary/20"
                 {...form.register("email")}
               />
               {form.formState.errors.email && (
-                <p className="text-xs text-destructive">{form.formState.errors.email.message}</p>
+                <div className="flex items-start gap-1.5 rounded-lg bg-destructive/10 px-3 py-2 text-xs text-destructive">
+                  <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                  <span>{form.formState.errors.email.message}</span>
+                </div>
               )}
             </div>
 
@@ -234,6 +242,7 @@ function StartPage() {
                 autoComplete="tel-national"
                 placeholder="(11) 91234-5678"
                 maxLength={16}
+                className="transition-all duration-200 ease-out hover:border-primary/50 focus:border-primary focus:ring-1 focus:ring-primary/20"
                 {...form.register("phone", {
                   onChange: (e) => {
                     e.target.value = formatBrPhone(e.target.value);
@@ -241,31 +250,40 @@ function StartPage() {
                 })}
               />
               {form.formState.errors.phone && (
-                <p className="text-xs text-destructive">{form.formState.errors.phone.message}</p>
+                <div className="flex items-start gap-1.5 rounded-lg bg-destructive/10 px-3 py-2 text-xs text-destructive">
+                  <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                  <span>{form.formState.errors.phone.message}</span>
+                </div>
               )}
             </div>
 
-            <label className="flex items-start gap-2 text-xs text-muted-foreground cursor-pointer">
+            <label className="group flex items-start gap-2 text-xs text-muted-foreground cursor-pointer">
               <input
                 type="checkbox"
-                className="mt-0.5 h-4 w-4 rounded border-input accent-primary"
+                className="mt-0.5 h-4 w-4 rounded border-input accent-primary transition-transform duration-150 group-hover:scale-105"
                 {...form.register("consent")}
               />
-              <span>
+              <span className="leading-relaxed">
                 Aceito receber contato da Next Go Saúde e concordo com o tratamento dos meus dados conforme a{" "}
-                <a href="#" className="underline hover:text-foreground">Política de Privacidade</a> (LGPD).
+                <a href="#" className="underline transition-colors duration-150 hover:text-foreground">Política de Privacidade</a> (LGPD).
               </span>
             </label>
             {form.formState.errors.consent && (
-              <p className="text-xs text-destructive">{form.formState.errors.consent.message}</p>
+              <div className="flex items-start gap-1.5 rounded-lg bg-destructive/10 px-3 py-2 text-xs text-destructive">
+                <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                <span>{form.formState.errors.consent.message}</span>
+              </div>
             )}
             {form.formState.errors.root && (
-              <p className="text-xs text-destructive">{form.formState.errors.root.message}</p>
+              <div className="flex items-start gap-1.5 rounded-lg bg-destructive/10 px-3 py-2 text-xs text-destructive">
+                <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                <span>{form.formState.errors.root.message}</span>
+              </div>
             )}
 
             <Button
               type="submit"
-              className="w-full gradient-primary text-primary-foreground font-semibold rounded-full h-12 text-base"
+              className="w-full gradient-primary text-primary-foreground font-semibold rounded-full h-12 text-base transition-all duration-200 ease-out hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
               disabled={form.formState.isSubmitting}
             >
               Continuar →
