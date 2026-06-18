@@ -6,7 +6,7 @@ import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { ShieldCheck, ArrowLeft } from "lucide-react";
+import { ShieldCheck, ArrowLeft, AlertCircle } from "lucide-react";
 import logo from "@/assets/nextgo-logo.png";
 import { saveLead } from "@/components/LeadCaptureDialog";
 
