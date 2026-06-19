@@ -265,7 +265,7 @@ function StartPage() {
               />
               <span className="leading-relaxed">
                 Aceito receber contato da Next Go Saúde e concordo com o tratamento dos meus dados conforme a{" "}
-                <a href="#" className="underline transition-colors duration-150 hover:text-foreground">Política de Privacidade</a> (LGPD).
+                <a href="/privacidade" className="underline transition-colors duration-150 hover:text-foreground">Política de Privacidade</a> (LGPD).
               </span>
             </label>
             {form.formState.errors.consent && (
