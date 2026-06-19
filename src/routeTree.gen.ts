@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermosRouteImport } from './routes/termos'
 import { Route as TelemedicinaEmpresarialRouteImport } from './routes/telemedicina-empresarial'
 import { Route as StartRouteImport } from './routes/start'
 import { Route as ManualMarcaRouteImport } from './routes/manual-marca'
 import { Route as DesignSystemRouteImport } from './routes/design-system'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TermosRoute = TermosRouteImport.update({
+  id: '/termos',
+  path: '/termos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TelemedicinaEmpresarialRoute = TelemedicinaEmpresarialRouteImport.update({
   id: '/telemedicina-empresarial',
   path: '/telemedicina-empresarial',
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/manual-marca': typeof ManualMarcaRoute
   '/start': typeof StartRoute
   '/telemedicina-empresarial': typeof TelemedicinaEmpresarialRoute
+  '/termos': typeof TermosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/manual-marca': typeof ManualMarcaRoute
   '/start': typeof StartRoute
   '/telemedicina-empresarial': typeof TelemedicinaEmpresarialRoute
+  '/termos': typeof TermosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,6 +70,7 @@ export interface FileRoutesById {
   '/manual-marca': typeof ManualMarcaRoute
   '/start': typeof StartRoute
   '/telemedicina-empresarial': typeof TelemedicinaEmpresarialRoute
+  '/termos': typeof TermosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -71,6 +80,7 @@ export interface FileRouteTypes {
     | '/manual-marca'
     | '/start'
     | '/telemedicina-empresarial'
+    | '/termos'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -78,6 +88,7 @@ export interface FileRouteTypes {
     | '/manual-marca'
     | '/start'
     | '/telemedicina-empresarial'
+    | '/termos'
   id:
     | '__root__'
     | '/'
@@ -85,6 +96,7 @@ export interface FileRouteTypes {
     | '/manual-marca'
     | '/start'
     | '/telemedicina-empresarial'
+    | '/termos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -93,10 +105,18 @@ export interface RootRouteChildren {
   ManualMarcaRoute: typeof ManualMarcaRoute
   StartRoute: typeof StartRoute
   TelemedicinaEmpresarialRoute: typeof TelemedicinaEmpresarialRoute
+  TermosRoute: typeof TermosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/termos': {
+      id: '/termos'
+      path: '/termos'
+      fullPath: '/termos'
+      preLoaderRoute: typeof TermosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/telemedicina-empresarial': {
       id: '/telemedicina-empresarial'
       path: '/telemedicina-empresarial'
@@ -141,17 +161,8 @@ const rootRouteChildren: RootRouteChildren = {
   ManualMarcaRoute: ManualMarcaRoute,
   StartRoute: StartRoute,
   TelemedicinaEmpresarialRoute: TelemedicinaEmpresarialRoute,
+  TermosRoute: TermosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
