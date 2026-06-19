@@ -2,23 +2,19 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, useRef } from "react";
 import {
   Menu, X, ShieldCheck, TrendingDown, Users, Briefcase,
-  Zap, Clock, FileBarChart, ShieldPlus, Check, Building2, Loader2,
+  Zap, Clock, Smartphone, ShieldPlus, Check, Building2, Loader2,
+  Lock, FileSignature, Pill, Quote, ChevronDown, Star,
 } from "lucide-react";
 import logo from "@/assets/nextgo-logo.png";
-import partnerRaia from "@/assets/partners/droga-raia.png";
-import partnerDrogasil from "@/assets/partners/drogasil.png";
-import partnerPagueMenos from "@/assets/partners/pague-menos.png";
-import partnerSaoMarcos from "@/assets/partners/sao-marcos.png";
-import partnerHermesPardini from "@/assets/partners/hermes-pardini.png";
-import partnerCmn from "@/assets/partners/cmn-guanabara.png";
+import telemedMockup from "@/assets/telemedicina-mockup.png";
 
 export const Route = createFileRoute("/telemedicina-empresarial")({
   head: () => ({
     meta: [
-      { title: "Telemedicina Empresarial: Saúde Ocupacional e Benefícios | Next Go Saúde" },
-      { name: "description", content: "Solução de telemedicina para PMEs. Reduza faltas, cumpra a NR-01 e ofereça saúde de qualidade por um custo acessível." },
-      { property: "og:title", content: "Telemedicina Empresarial: Saúde Ocupacional e Benefícios | Next Go Saúde" },
-      { property: "og:description", content: "Solução de telemedicina para PMEs. Reduza faltas, cumpra a NR-01 e ofereça saúde de qualidade por um custo acessível." },
+      { title: "Telemedicina Empresarial: Atendimento em 8 min | Next Go Saúde" },
+      { name: "description", content: "Reduza o absenteísmo, cumpra a NR-01 e ofereça telemedicina corporativa 24h sem carência. Atendimento em 8 minutos para sua equipe." },
+      { property: "og:title", content: "Telemedicina Empresarial: Atendimento em 8 min | Next Go Saúde" },
+      { property: "og:description", content: "Reduza o absenteísmo, cumpra a NR-01 e ofereça telemedicina corporativa 24h sem carência. Atendimento em 8 minutos para sua equipe." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://telemedicinaacessivel.com.br/telemedicina-empresarial" },
     ],
@@ -30,23 +26,28 @@ export const Route = createFileRoute("/telemedicina-empresarial")({
 });
 
 const FORM_ID = "proposta-corporativa";
+const PLANS_ID = "planos-empresariais";
 const FREE_EMAIL_DOMAINS = new Set([
   "gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "yahoo.com.br",
   "live.com", "icloud.com", "bol.com.br", "uol.com.br", "terra.com.br",
   "msn.com", "me.com", "proton.me", "protonmail.com",
 ]);
 
-function scrollToForm() {
-  const el = document.getElementById(FORM_ID);
+function scrollToId(id: string) {
+  const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
+function scrollToForm() { scrollToId(FORM_ID); }
+function scrollToPlans() { scrollToId(PLANS_ID); }
 
 function Navbar() {
   const [open, setOpen] = useState(false);
   const links = [
     { id: "dores", label: "Por quê" },
     { id: "beneficios-b2b", label: "Benefícios" },
-    { id: "proposta-corporativa", label: "Solicitar proposta" },
+    { id: PLANS_ID, label: "Planos" },
+    { id: "faq", label: "FAQ" },
+    { id: FORM_ID, label: "Cotação" },
   ];
   return (
     <header className="glass fixed top-0 inset-x-0 z-50">
@@ -54,11 +55,11 @@ function Navbar() {
         <a href="/" className="flex items-center" aria-label="Next Go Saúde">
           <img src={logo} alt="Next Go Saúde" width={140} height={44} className="h-9 w-auto" />
         </a>
-        <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
+        <ul className="hidden md:flex items-center gap-7 text-sm font-medium text-muted-foreground">
           {links.map(l => (
             <li key={l.id}>
               <button
-                onClick={() => document.getElementById(l.id)?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => scrollToId(l.id)}
                 className="hover:text-foreground transition"
               >
                 {l.label}
@@ -70,7 +71,7 @@ function Navbar() {
           onClick={scrollToForm}
           className="hidden md:inline-flex items-center gap-2 gradient-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition shadow-soft"
         >
-          <Briefcase className="w-4 h-4" /> Solicitar proposta
+          <Briefcase className="w-4 h-4" /> Receber cotação
         </button>
         <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X /> : <Menu />}
@@ -81,7 +82,7 @@ function Navbar() {
           {links.map(l => (
             <button
               key={l.id}
-              onClick={() => { setOpen(false); document.getElementById(l.id)?.scrollIntoView({ behavior: "smooth" }); }}
+              onClick={() => { setOpen(false); scrollToId(l.id); }}
               className="block text-sm font-medium"
             >
               {l.label}
@@ -91,7 +92,7 @@ function Navbar() {
             onClick={() => { setOpen(false); scrollToForm(); }}
             className="inline-flex items-center gap-2 gradient-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold"
           >
-            <Briefcase className="w-4 h-4" /> Solicitar proposta
+            <Briefcase className="w-4 h-4" /> Receber cotação
           </button>
         </div>
       )}
@@ -107,28 +108,43 @@ function Hero() {
           <Building2 className="w-3.5 h-3.5" /> Telemedicina para empresas
         </span>
         <h1 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[1.05]">
-          Reduza o absenteísmo e retenha talentos com o{" "}
+          Zere as faltas por idas ao pronto-socorro.{" "}
           <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            benefício de saúde mais inteligente
-          </span>{" "}
-          para sua empresa.
+            Telemedicina corporativa com atendimento em 8 minutos.
+          </span>
         </h1>
         <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-          Atendimento médico 24h para seus colaboradores, conformidade com a NR-01
-          e economia real comparada aos planos tradicionais.
+          Reduza o absenteísmo, garanta conformidade com a NR-01 e ofereça um benefício
+          de saúde que cabe no orçamento da sua empresa. Sem carência.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <button
             onClick={scrollToForm}
             className="pulse-cta gradient-primary text-primary-foreground font-semibold px-7 py-4 rounded-full shadow-soft hover:scale-[1.02] transition"
           >
-            Solicitar Proposta Corporativa
+            Receber Cotação Personalizada
+          </button>
+          <button
+            onClick={scrollToPlans}
+            className="bg-card text-foreground border border-border font-semibold px-7 py-4 rounded-full hover:border-primary hover:text-primary transition"
+          >
+            Ver Planos para MEI/PME
           </button>
         </div>
-        <div className="mt-8 flex items-center justify-center gap-2 text-xs text-muted-foreground">
-          <ShieldCheck className="w-4 h-4 text-primary" />
-          Resposta em até 1 dia útil · Sem compromisso
-        </div>
+        <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
+          <li className="inline-flex items-center gap-1.5">
+            <Pill className="w-4 h-4 text-primary" />
+            Receitas aceitas em qualquer farmácia
+          </li>
+          <li className="inline-flex items-center gap-1.5">
+            <FileSignature className="w-4 h-4 text-primary" />
+            Atestados com Assinatura Digital ICP-Brasil
+          </li>
+          <li className="inline-flex items-center gap-1.5">
+            <Lock className="w-4 h-4 text-primary" />
+            Sigilo Médico Garantido (LGPD)
+          </li>
+        </ul>
       </div>
     </section>
   );
@@ -191,14 +207,14 @@ function BenefitsB2B() {
       desc: "Pronto Atendimento 24h liberado imediatamente para todos os colaboradores ativados — eles usam no mesmo dia.",
     },
     {
-      icon: FileBarChart,
-      title: "Relatórios de uso",
-      desc: "Painel mensal de adesão, especialidades mais usadas e impacto no absenteísmo — dados objetivos para defender o ROI do benefício.",
+      icon: Smartphone,
+      title: "Atendimento direto do celular",
+      desc: "Consulta por vídeo em minutos, sem deslocamento e sem fila — o colaborador resolve no horário de almoço, sem perder o turno.",
     },
     {
       icon: ShieldPlus,
       title: "Suporte à NR-01",
-      desc: "Apoio à gestão de riscos psicossociais com acesso a psicólogos e relatórios agregados — documentação que ajuda na conformidade.",
+      desc: "Apoio à gestão de riscos psicossociais com acesso a psicólogos — documentação que ajuda na conformidade da sua empresa.",
     },
   ];
   return (
@@ -211,17 +227,31 @@ function BenefitsB2B() {
             Pensado para PMEs que precisam de resultado, não de mais um sistema para gerenciar.
           </p>
         </div>
-        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {items.map(i => (
-            <article key={i.title} className="p-7 rounded-2xl bg-card border border-border shadow-card hover:-translate-y-1 transition">
-              <div className="w-12 h-12 grid place-items-center rounded-xl gradient-primary text-primary-foreground shadow-soft">
-                <i.icon className="w-6 h-6" />
-              </div>
-              <h3 className="mt-5 font-display text-lg font-bold">{i.title}</h3>
-              <p className="mt-2 text-muted-foreground text-sm">{i.desc}</p>
-            </article>
-          ))}
+
+        <div className="mt-12 grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-14 items-center">
+          <div className="grid sm:grid-cols-2 gap-6 order-2 lg:order-1">
+            {items.map(i => (
+              <article key={i.title} className="p-7 rounded-2xl bg-card border border-border shadow-card hover:-translate-y-1 transition">
+                <div className="w-12 h-12 grid place-items-center rounded-xl gradient-primary text-primary-foreground shadow-soft">
+                  <i.icon className="w-6 h-6" />
+                </div>
+                <h3 className="mt-5 font-display text-lg font-bold">{i.title}</h3>
+                <p className="mt-2 text-muted-foreground text-sm">{i.desc}</p>
+              </article>
+            ))}
+          </div>
+          <div className="order-1 lg:order-2 flex justify-center">
+            <img
+              src={telemedMockup}
+              alt="Colaborador em consulta médica por vídeo no celular"
+              width={384}
+              height={480}
+              loading="lazy"
+              className="w-64 md:w-80 h-auto drop-shadow-2xl"
+            />
+          </div>
         </div>
+
         <div className="mt-12 text-center">
           <button
             onClick={scrollToForm}
@@ -235,34 +265,220 @@ function BenefitsB2B() {
   );
 }
 
-const PARTNERS = [
-  { src: partnerRaia, name: "Droga Raia" },
-  { src: partnerDrogasil, name: "Drogasil" },
-  { src: partnerPagueMenos, name: "Pague Menos" },
-  { src: partnerHermesPardini, name: "Hermes Pardini" },
-  { src: partnerSaoMarcos, name: "São Marcos" },
-  { src: partnerCmn, name: "Centro de Medicina Nuclear da Guanabara" },
-];
-
-function SocialProof() {
+function Testimonials() {
+  const items = [
+    {
+      quote: "A facilidade do atendimento em minutos reduziu drasticamente as saídas de colaboradores para consultas simples. O atestado digital chega na hora para o RH.",
+      author: "Gerente de RH",
+    },
+    {
+      quote: "Implementamos como benefício e a aceitação foi imediata. Custo baixo e conformidade com as normas de saúde ocupacional.",
+      author: "Diretor de Operações",
+    },
+  ];
   return (
-    <section className="py-16 md:py-20">
+    <section className="py-20 md:py-24">
       <div className="mx-auto max-w-7xl px-5">
-        <p className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-wider">
-          Empresas que já confiam na nossa rede de descontos
-        </p>
-        <ul className="mt-10 grid grid-cols-3 md:grid-cols-6 gap-x-8 gap-y-6 items-center">
-          {PARTNERS.map(p => (
-            <li key={p.name} className="grid place-items-center">
-              <img
-                src={p.src}
-                alt={p.name}
-                loading="lazy"
-                className="max-h-10 md:max-h-12 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition"
-              />
-            </li>
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Resultados reais</span>
+          <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">
+            Empresas mais produtivas e colaboradores mais saudáveis
+          </h2>
+        </div>
+        <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {items.map(t => (
+            <article key={t.author} className="relative p-8 rounded-2xl bg-card border border-border shadow-card hover:-translate-y-1 transition">
+              <Quote className="absolute top-5 right-5 w-8 h-8 text-primary/20" />
+              <div className="flex gap-0.5 text-primary mb-4">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-current" />
+                ))}
+              </div>
+              <p className="text-foreground/90 leading-relaxed">"{t.quote}"</p>
+              <p className="mt-5 text-sm font-semibold text-muted-foreground">— {t.author}</p>
+            </article>
           ))}
-        </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+type Plan = {
+  name: string;
+  scope: string;
+  price: string;
+  priceSuffix?: string;
+  features: string[];
+  cta: string;
+  href?: string;
+  onClick?: () => void;
+  highlight?: boolean;
+  badge?: string;
+};
+
+function Plans() {
+  const common = [
+    "Atendimento clínico geral 24h",
+    "Sem carência",
+    "Receitas e atestados digitais",
+  ];
+  const plans: Plan[] = [
+    {
+      name: "Empresarial Básico",
+      scope: "Até 10 vidas",
+      price: "R$ 279",
+      priceSuffix: "/mês",
+      features: common,
+      cta: "Assinar Agora",
+      href: "https://app.nextgosaude.com.br/public/plans/0c23b2ef-be88-4b22-b2de-cb9b5cc60334",
+    },
+    {
+      name: "Empresarial Básico",
+      scope: "Até 30 vidas",
+      price: "R$ 777",
+      priceSuffix: "/mês",
+      features: common,
+      cta: "Assinar Agora",
+      href: "https://app.nextgosaude.com.br/public/plans/daf50e38-df0e-4cdc-a950-51760dffbb69",
+      highlight: true,
+      badge: "Mais escolhido",
+    },
+    {
+      name: "Corporativo",
+      scope: "+30 vidas ou Customizado",
+      price: "Sob consulta",
+      features: common,
+      cta: "Falar com Especialista",
+      onClick: scrollToForm,
+    },
+  ];
+
+  return (
+    <section id={PLANS_ID} className="py-20 md:py-28 bg-muted/40 scroll-mt-20">
+      <div className="mx-auto max-w-7xl px-5">
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Planos empresariais</span>
+          <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">
+            Escolha o plano ideal para o tamanho da sua empresa
+          </h2>
+          <p className="mt-4 text-muted-foreground text-lg">
+            Contratação rápida para MEI e PME. Acima de 30 colaboradores, montamos uma proposta sob medida.
+          </p>
+        </div>
+
+        <div className="mt-12 grid md:grid-cols-3 gap-6 items-stretch">
+          {plans.map(p => (
+            <article
+              key={`${p.name}-${p.scope}`}
+              className={`relative flex flex-col p-7 rounded-2xl bg-card border shadow-card transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-lg ${
+                p.highlight
+                  ? "border-primary ring-1 ring-primary/30 hover:ring-primary/50 hover:shadow-primary/20"
+                  : "border-border hover:border-primary/40"
+              }`}
+            >
+              {p.badge && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 gradient-primary text-primary-foreground text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-soft">
+                  {p.badge}
+                </span>
+              )}
+              <h3 className="font-display text-xl font-bold">{p.name}</h3>
+              <p className="text-sm text-muted-foreground">{p.scope}</p>
+              <div className="mt-5 flex items-baseline gap-1">
+                <span className="font-display text-4xl font-extrabold text-foreground">{p.price}</span>
+                {p.priceSuffix && (
+                  <span className="text-muted-foreground text-sm font-medium">{p.priceSuffix}</span>
+                )}
+              </div>
+              <ul className="mt-6 space-y-3 text-sm flex-1">
+                {p.features.map(f => (
+                  <li key={f} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              {p.href ? (
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-7 inline-flex items-center justify-center gap-2 font-semibold px-6 py-3 rounded-full transition ${
+                    p.highlight
+                      ? "gradient-primary text-primary-foreground shadow-soft hover:scale-[1.02]"
+                      : "bg-foreground text-background hover:opacity-90"
+                  }`}
+                >
+                  {p.cta}
+                </a>
+              ) : (
+                <button
+                  onClick={p.onClick}
+                  className="mt-7 inline-flex items-center justify-center gap-2 font-semibold px-6 py-3 rounded-full bg-foreground text-background hover:opacity-90 transition"
+                >
+                  {p.cta}
+                </button>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FAQ() {
+  const items = [
+    {
+      q: "Os atestados têm validade legal?",
+      a: "Sim, todos os atestados e receitas são emitidos com assinatura digital padrão ICP-Brasil, válidos em todo o território nacional.",
+    },
+    {
+      q: "Tem carência para uso?",
+      a: "Não. Após a confirmação do plano e cadastro dos colaboradores, o uso é imediato e disponível 24h por dia.",
+    },
+    {
+      q: "Substitui o exame da NR-07?",
+      a: "Não. A telemedicina atua como suporte preventivo e pronto-atendimento, apoiando as diretrizes de saúde da NR-01, mas não substitui exames ocupacionais obrigatórios (admissional/demissional).",
+    },
+  ];
+  const [openIdx, setOpenIdx] = useState<number | null>(0);
+  return (
+    <section id="faq" className="py-20 md:py-24 scroll-mt-20">
+      <div className="mx-auto max-w-3xl px-5">
+        <div className="text-center">
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Perguntas frequentes</span>
+          <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">
+            Dúvidas comuns de quem decide
+          </h2>
+        </div>
+        <div className="mt-10 space-y-3">
+          {items.map((it, i) => {
+            const open = openIdx === i;
+            return (
+              <div
+                key={it.q}
+                className="rounded-2xl border border-border bg-card overflow-hidden transition hover:border-primary/40"
+              >
+                <button
+                  onClick={() => setOpenIdx(open ? null : i)}
+                  className="w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-semibold"
+                  aria-expanded={open}
+                >
+                  <span>{it.q}</span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-primary shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {open && (
+                  <div className="px-6 pb-6 -mt-1 text-muted-foreground leading-relaxed">
+                    {it.a}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
@@ -385,7 +601,7 @@ function LeadForm() {
         <h3 className="mt-5 font-display text-2xl font-bold">Recebemos sua solicitação!</h3>
         <p className="mt-3 text-muted-foreground">
           Nosso time corporativo vai analisar o perfil da sua empresa e entrar em contato pelo
-          WhatsApp <strong>{maskPhone(form.phone)}</strong> em até 1 dia útil com uma proposta sob medida.
+          WhatsApp <strong>{maskPhone(form.phone)}</strong> em até 1 dia útil com uma cotação sob medida.
         </p>
       </div>
     );
@@ -509,7 +725,7 @@ function LeadForm() {
         disabled={submitting}
         className="w-full md:w-auto inline-flex items-center justify-center gap-2 gradient-primary text-primary-foreground font-semibold px-8 py-4 rounded-full shadow-soft hover:scale-[1.02] transition disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {submitting ? <><Loader2 className="w-4 h-4 animate-spin" /> Enviando…</> : "Solicitar Proposta Corporativa"}
+        {submitting ? <><Loader2 className="w-4 h-4 animate-spin" /> Enviando…</> : "Receber Cotação Personalizada"}
       </button>
       <p className="text-xs text-muted-foreground">
         Resposta em até 1 dia útil. Seus dados são tratados em conformidade com a LGPD e nunca
@@ -524,12 +740,12 @@ function FormSection() {
     <section id={FORM_ID} className="py-20 md:py-28 bg-muted/40 scroll-mt-20">
       <div className="mx-auto max-w-4xl px-5">
         <div className="text-center max-w-2xl mx-auto">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Solicitar proposta</span>
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Solicitar cotação</span>
           <h2 className="mt-2 text-3xl md:text-5xl font-extrabold">
             Fale com um especialista corporativo
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Conte sobre sua empresa em 1 minuto. Vamos preparar uma proposta sob medida para o seu
+            Conte sobre sua empresa em 1 minuto. Vamos preparar uma cotação sob medida para o seu
             tamanho e o seu desafio.
           </p>
         </div>
@@ -557,7 +773,8 @@ function Footer() {
           <h3 className="font-semibold mb-3">Navegue</h3>
           <ul className="space-y-2 text-sm opacity-80">
             <li><a href="/">Planos individuais</a></li>
-            <li><button onClick={scrollToForm} className="hover:underline">Solicitar proposta</button></li>
+            <li><button onClick={scrollToPlans} className="hover:underline">Planos empresariais</button></li>
+            <li><button onClick={scrollToForm} className="hover:underline">Solicitar cotação</button></li>
           </ul>
         </div>
         <div>
@@ -584,7 +801,9 @@ function TelemedicinaEmpresarial() {
       <Hero />
       <Pains />
       <BenefitsB2B />
-      <SocialProof />
+      <Testimonials />
+      <Plans />
+      <FAQ />
       <FormSection />
       <Footer />
     </main>
