@@ -499,7 +499,7 @@ function LeadForm() {
         <span>
           Autorizo a Next Go Saúde a entrar em contato comigo com informações comerciais sobre
           o benefício corporativo e concordo com o tratamento dos meus dados conforme a
-          <a href="#" className="text-primary hover:underline"> Política de Privacidade</a> (LGPD).
+          <a href="/privacidade" className="text-primary hover:underline"> Política de Privacidade</a> (LGPD).
         </span>
       </label>
       {errors.consent && <p className="-mt-3 text-xs text-red-600">{errors.consent}</p>}
