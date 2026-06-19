@@ -499,7 +499,7 @@ function LeadForm() {
         <span>
           Autorizo a Next Go Saúde a entrar em contato comigo com informações comerciais sobre
           o benefício corporativo e concordo com o tratamento dos meus dados conforme a
-          <a href="#" className="text-primary hover:underline"> Política de Privacidade</a> (LGPD).
+          <a href="/privacidade" className="text-primary hover:underline"> Política de Privacidade</a> (LGPD).
         </span>
       </label>
       {errors.consent && <p className="-mt-3 text-xs text-red-600">{errors.consent}</p>}
@@ -564,8 +564,8 @@ function Footer() {
           <h3 className="font-semibold mb-3">Contato e legal</h3>
           <ul className="space-y-2 text-sm opacity-80">
             <li><a href="mailto:telemedicinaacessivel@gmail.com">telemedicinaacessivel@gmail.com</a></li>
-            <li><a href="#">Termos de Uso</a></li>
-            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="/termos" className="hover:underline">Termos de Uso</a></li>
+            <li><a href="/privacidade" className="hover:underline">Política de Privacidade</a></li>
           </ul>
         </div>
       </div>

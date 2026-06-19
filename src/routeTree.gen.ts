@@ -9,12 +9,19 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermosRouteImport } from './routes/termos'
 import { Route as TelemedicinaEmpresarialRouteImport } from './routes/telemedicina-empresarial'
 import { Route as StartRouteImport } from './routes/start'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as ManualMarcaRouteImport } from './routes/manual-marca'
 import { Route as DesignSystemRouteImport } from './routes/design-system'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TermosRoute = TermosRouteImport.update({
+  id: '/termos',
+  path: '/termos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TelemedicinaEmpresarialRoute = TelemedicinaEmpresarialRouteImport.update({
   id: '/telemedicina-empresarial',
   path: '/telemedicina-empresarial',
@@ -23,6 +30,11 @@ const TelemedicinaEmpresarialRoute = TelemedicinaEmpresarialRouteImport.update({
 const StartRoute = StartRouteImport.update({
   id: '/start',
   path: '/start',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ManualMarcaRoute = ManualMarcaRouteImport.update({
@@ -45,23 +57,29 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/design-system': typeof DesignSystemRoute
   '/manual-marca': typeof ManualMarcaRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/start': typeof StartRoute
   '/telemedicina-empresarial': typeof TelemedicinaEmpresarialRoute
+  '/termos': typeof TermosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/design-system': typeof DesignSystemRoute
   '/manual-marca': typeof ManualMarcaRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/start': typeof StartRoute
   '/telemedicina-empresarial': typeof TelemedicinaEmpresarialRoute
+  '/termos': typeof TermosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/design-system': typeof DesignSystemRoute
   '/manual-marca': typeof ManualMarcaRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/start': typeof StartRoute
   '/telemedicina-empresarial': typeof TelemedicinaEmpresarialRoute
+  '/termos': typeof TermosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -69,34 +87,49 @@ export interface FileRouteTypes {
     | '/'
     | '/design-system'
     | '/manual-marca'
+    | '/privacidade'
     | '/start'
     | '/telemedicina-empresarial'
+    | '/termos'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/design-system'
     | '/manual-marca'
+    | '/privacidade'
     | '/start'
     | '/telemedicina-empresarial'
+    | '/termos'
   id:
     | '__root__'
     | '/'
     | '/design-system'
     | '/manual-marca'
+    | '/privacidade'
     | '/start'
     | '/telemedicina-empresarial'
+    | '/termos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DesignSystemRoute: typeof DesignSystemRoute
   ManualMarcaRoute: typeof ManualMarcaRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
   StartRoute: typeof StartRoute
   TelemedicinaEmpresarialRoute: typeof TelemedicinaEmpresarialRoute
+  TermosRoute: typeof TermosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/termos': {
+      id: '/termos'
+      path: '/termos'
+      fullPath: '/termos'
+      preLoaderRoute: typeof TermosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/telemedicina-empresarial': {
       id: '/telemedicina-empresarial'
       path: '/telemedicina-empresarial'
@@ -109,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/start'
       fullPath: '/start'
       preLoaderRoute: typeof StartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/manual-marca': {
@@ -139,8 +179,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DesignSystemRoute: DesignSystemRoute,
   ManualMarcaRoute: ManualMarcaRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
   StartRoute: StartRoute,
   TelemedicinaEmpresarialRoute: TelemedicinaEmpresarialRoute,
+  TermosRoute: TermosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

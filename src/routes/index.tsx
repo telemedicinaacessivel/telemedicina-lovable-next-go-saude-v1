@@ -590,8 +590,8 @@ function Footer() {
           <ul className="space-y-2 text-sm opacity-80">
             <li><FooterWhatsLink /></li>
             <li><a href="mailto:telemedicinaacessivel@gmail.com">telemedicinaacessivel@gmail.com</a></li>
-            <li><a href="#">Termos de Uso</a></li>
-            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="/termos" className="hover:underline">Termos de Uso</a></li>
+            <li><a href="/privacidade" className="hover:underline">Política de Privacidade</a></li>
           </ul>
         </div>
       </div>
