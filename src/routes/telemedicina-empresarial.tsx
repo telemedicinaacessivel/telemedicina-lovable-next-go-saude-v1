@@ -564,8 +564,8 @@ function Footer() {
           <h3 className="font-semibold mb-3">Contato e legal</h3>
           <ul className="space-y-2 text-sm opacity-80">
             <li><a href="mailto:telemedicinaacessivel@gmail.com">telemedicinaacessivel@gmail.com</a></li>
-            <li><a href="#">Termos de Uso</a></li>
-            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="/termos" className="hover:underline">Termos de Uso</a></li>
+            <li><a href="/privacidade" className="hover:underline">Política de Privacidade</a></li>
           </ul>
         </div>
       </div>
