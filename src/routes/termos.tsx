@@ -30,27 +30,27 @@ function TermosPage() {
 
         <article className="prose prose-neutral max-w-none text-foreground space-y-8 leading-relaxed">
           <p>
-            Estes Termos de Uso regulam o acesso e a utilização do site <strong>telemedicinaacessivel.com.br</strong>, de propriedade e operação da <strong>AKVO SERVIÇOS ADMINISTRATIVOS LTDA</strong>, inscrita no CNPJ sob o nº <strong>50.452.066/0001-90</strong>, com sede em Belo Horizonte/MG, doravante denominada simplesmente como <strong>FRANQUEADA</strong> ou <strong>UNIDADE AUTÔNOMA</strong>.
+            Estes Termos de Uso regulam o acesso e a utilização do site <strong>telemedicinaacessivel.com.br</strong>, de propriedade e operação da <strong>AKVO SERVIÇOS ADMINISTRATIVOS LTDA</strong>, inscrita no CNPJ sob o nº <strong>50.452.066/0001-90</strong>, com sede em Belo Horizonte/MG, doravante denominada simplesmente como <strong>FRANQUEADA</strong>.
           </p>
 
           <section>
             <h2 className="text-xl md:text-2xl font-bold mb-3">1.1. Natureza da Operação e Independência Jurídica</h2>
             <p>
-              A <strong>AKVO SERVIÇOS ADMINISTRATIVOS LTDA</strong> atua exclusivamente como uma unidade franqueada autônoma da marca <strong>Next Go Saúde</strong>. A atividade desempenhada através deste website limita-se estritamente à <strong>intermediação comercial, divulgação publicitária e venda de planos de benefícios</strong>. A <strong>FRANQUEADA</strong> é uma entidade jurídica independente e não possui ingerência técnica, operacional ou clínica sobre a plataforma de telemedicina.
+              A <strong>AKVO SERVIÇOS ADMINISTRATIVOS LTDA</strong> atua exclusivamente como uma unidade franqueada autônoma da marca Next Go Saúde, de propriedade da <strong>Next Go Marketing e Comercio LTDA</strong>, inscrita no CNPJ sob nº <strong>36.857.246/0001-21</strong>, com sede em Belo Horizonte/MG e doravante indicada simplesmente como <strong>FRANQUEADORA</strong>. A atividade desempenhada através deste website limita-se estritamente à <strong>intermediação comercial, divulgação publicitária e venda de planos de benefícios</strong>. A <strong>FRANQUEADA</strong> é uma entidade jurídica independente e não possui ingerência técnica, operacional ou clínica sobre a plataforma de telemedicina.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl md:text-2xl font-bold mb-3">1.2. Limitação de Responsabilidade e Objeto do Site</h2>
             <p>
-              O usuário declara ciência de que este website é um portal de vendas e captação de clientes. A <strong>FRANQUEADA</strong> não presta serviços médicos, não realiza teleconsultas, não emite prescrições e não é responsável pela gestão da rede credenciada. Toda a prestação do serviço de saúde, bem como a disponibilidade do aplicativo e da plataforma tecnológica, é de responsabilidade integral e exclusiva da <strong>FRANQUEADORA (Next Go Saúde)</strong>.
+              O usuário declara ciência de que este website é um portal de vendas e captação de clientes. A <strong>FRANQUEADA</strong> não presta serviços médicos, não realiza teleconsultas, não emite prescrições e não é responsável pela gestão da rede credenciada. Toda a prestação do serviço de saúde, bem como a disponibilidade do aplicativo e da plataforma tecnológica, é de responsabilidade integral e exclusiva da <strong>FRANQUEADORA</strong>.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl md:text-2xl font-bold mb-3">1.3. Processo de Compra e Ativação</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-3">1.3. Processo de Compra, Ativação e Inativação</h2>
             <p>
-              Ao adquirir um plano através deste site, o usuário está contratando o direito de acesso à plataforma de terceiros. A responsabilidade da <strong>FRANQUEADA</strong> encerra-se com a conclusão da venda e o envio dos dados necessários para a ativação do acesso junto à <strong>FRANQUEADORA</strong>. Eventuais falhas técnicas no aplicativo, indisponibilidade de sistema ou insatisfação com o atendimento médico devem ser tratadas diretamente nos canais de suporte da plataforma oficial da <strong>Next Go Saúde</strong>.
+              Ao adquirir um plano através deste site, o usuário está contratando o direito de acesso à plataforma de terceiros. A responsabilidade da <strong>FRANQUEADA</strong> encerra-se com a conclusão da venda e o envio dos dados necessários para a ativação do acesso junto à <strong>FRANQUEADORA</strong>. Eventuais falhas técnicas no aplicativo, indisponibilidade de sistema ou insatisfação com o atendimento médico devem ser tratadas diretamente nos canais de suporte da plataforma oficial da <strong>FRANQUEADORA</strong>. A inativação do plano ora vigente e suas respectivas cobranças é de responsabilidade da <strong>FRANQUEADORA</strong>, ainda que seja permitido também ao próprio usuário fazer diretamente, por conta própria e via plataforma, a inativação.
             </p>
           </section>
 
