@@ -30,7 +30,7 @@ function PrivacidadePage() {
 
         <article className="prose prose-neutral max-w-none text-foreground space-y-8 leading-relaxed">
           <p>
-            Esta Política de Privacidade descreve como a <strong>AKVO SERVIÇOS ADMINISTRATIVOS LTDA</strong> coleta, utiliza e protege os dados pessoais dos usuários que interagem com o domínio <strong>telemedicinaacessivel.com.br</strong>, em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 - LGPD).
+            Esta Política de Privacidade descreve como a <strong>AKVO SERVIÇOS ADMINISTRATIVOS LTDA</strong>, doravante indicada simplesmente como <strong>FRANQUEADA</strong>, coleta, utiliza e protege os dados pessoais dos usuários que interagem com o domínio <strong>telemedicinaacessivel.com.br</strong>, em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 - LGPD).
           </p>
 
           <section>
@@ -43,12 +43,19 @@ function PrivacidadePage() {
           <section>
             <h2 className="text-xl md:text-2xl font-bold mb-3">2.2. Exclusão de Dados Sensíveis de Saúde</h2>
             <p>
-              A <strong>AKVO SERVIÇOS ADMINISTRATIVOS LTDA NÃO</strong> coleta, não armazena e não processa dados pessoais sensíveis de saúde (tais como prontuários, sintomas, histórico médico ou prescrições). O tratamento de dados sensíveis ocorre exclusivamente dentro do ambiente seguro da plataforma da <strong>FRANQUEADORA</strong>, após a devida ativação da conta, sob as políticas de privacidade específicas daquela entidade.
+              A <strong>FRANQUEADA</strong> não coleta, não armazena e não processa dados pessoais sensíveis de saúde (tais como prontuários, sintomas, histórico médico ou prescrições). O tratamento de dados sensíveis ocorre exclusivamente dentro do ambiente seguro da plataforma da <strong>Next Go Marketing e Comercio LTDA</strong>, inscrita no CNPJ sob nº <strong>36.857.246/0001-21</strong>, com sede em Belo Horizonte/MG e doravante indicada simplesmente como <strong>FRANQUEADORA</strong>, após a devida ativação da conta, sob as políticas de privacidade específicas daquela entidade.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl md:text-2xl font-bold mb-3">2.3. Finalidade do Tratamento</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-3">2.3. Dados Financeiros</h2>
+            <p>
+              A <strong>FRANQUEADA</strong> não tem, em nenhum momento, acesso a qualquer dado financeiro utilizado no processo de pagamento dos usuários. Tais informações são de única e exclusiva responsabilidade da <strong>FRANQUEADORA</strong>, que coleta, utiliza e processa, de forma independente, os pagamentos, isentando toda e qualquer responsabilidade, seja solidária ou subsidiária, por parte da <strong>FRANQUEADA</strong>.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl md:text-2xl font-bold mb-3">2.4. Finalidade do Tratamento</h2>
             <p>Os dados coletados neste site possuem finalidades estritamente comerciais e de marketing, incluindo:</p>
             <ol className="list-decimal pl-6 space-y-1 mt-2">
               <li>Identificação e qualificação de potenciais clientes (leads);</li>
@@ -59,28 +66,28 @@ function PrivacidadePage() {
           </section>
 
           <section>
-            <h2 className="text-xl md:text-2xl font-bold mb-3">2.4. Compartilhamento de Dados</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-3">2.5. Compartilhamento de Dados</h2>
             <p>
-              Para a viabilização do serviço contratado, a <strong>FRANQUEADA</strong> compartilhará os dados cadastrais básicos do usuário com a <strong>FRANQUEADORA (Next Go Saúde)</strong>. Não há compartilhamento de dados com outros terceiros, exceto para cumprimento de obrigações legais ou processamento de pagamentos.
+              Para a viabilização do serviço contratado, a <strong>FRANQUEADA</strong> compartilhará os dados cadastrais básicos do usuário com a <strong>FRANQUEADORA</strong>. Não há compartilhamento de dados com outros terceiros, exceto para cumprimento de obrigações legais ou processamento de pagamentos.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl md:text-2xl font-bold mb-3">2.5. Cookies e Ferramentas de Marketing</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-3">2.6. Cookies e Ferramentas de Marketing</h2>
             <p>
               Este site utiliza cookies e tecnologias de rastreamento para melhorar a experiência do usuário e otimizar campanhas publicitárias. Utilizamos ferramentas como <strong>Google Analytics, Microsoft Clarity, Google Ads e Meta Ads</strong>. O usuário pode configurar seu navegador para recusar cookies, ciente de que isso pode afetar a funcionalidade do site.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl md:text-2xl font-bold mb-3">2.6. Transferência Internacional de Dados</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-3">2.7. Transferência Internacional de Dados</h2>
             <p>
               Em virtude do uso de ferramentas de análise e marketing (como Google e Meta), os dados de navegação e identificação técnica podem ser processados em servidores localizados fora do território nacional. O usuário declara ciência e concordância com essa <strong>possível transferência internacional</strong>, realizada sob as garantias de segurança das referidas empresas de tecnologia.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl md:text-2xl font-bold mb-3">2.7. Direitos do Titular</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-3">2.8. Direitos do Titular</h2>
             <p>
               Nos termos da LGPD, o usuário possui o direito de solicitar, a qualquer momento, a confirmação da existência de tratamento, o acesso aos seus dados, a correção de dados incompletos ou a exclusão de seus dados da base de marketing da <strong>FRANQUEADA</strong>, através do e-mail:{" "}
               <a href="mailto:telemedicinaacessivel@gmail.com" className="text-primary hover:underline font-medium">telemedicinaacessivel@gmail.com</a>.
