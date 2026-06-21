@@ -24,21 +24,21 @@ import face4 from "@/assets/faces/face4.jpg";
 export const Route = createFileRoute("/individual-familiar")({
   head: () => ({
     meta: [
-      { title: "Médico Online 24h e 30+ Especialidades | Next Go Saúde" },
+      { title: "Planos Individual e Família: Médico Online 24h | Next Go Saúde" },
       { name: "description", content: "Consultas com clínico geral e especialistas sem sair de casa. Clube de descontos em farmácias e exames de até 80%. O cuidado que sua família merece. Confira!" },
-      { property: "og:title", content: "Médico Online 24h e 30+ Especialidades | Next Go Saúde" },
+      { property: "og:title", content: "Planos Individual e Família: Médico Online 24h | Next Go Saúde" },
       { property: "og:description", content: "Consultas com clínico geral e especialistas sem sair de casa. Clube de descontos em farmácias e exames de até 80%. O cuidado que sua família merece. Confira!" },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://telemedicinaacessivel.com.br/" },
+      { property: "og:url", content: "https://telemedicinaacessivel.com.br/individual-familiar" },
       { property: "og:image", content: "https://telemedicinaacessivel.com.br/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { name: "twitter:title", content: "Médico Online 24h e 30+ Especialidades | Next Go Saúde" },
+      { name: "twitter:title", content: "Planos Individual e Família: Médico Online 24h | Next Go Saúde" },
       { name: "twitter:description", content: "Consultas com clínico geral e especialistas sem sair de casa. Clube de descontos em farmácias e exames de até 80%. O cuidado que sua família merece. Confira!" },
       { name: "twitter:image", content: "https://telemedicinaacessivel.com.br/og-image.jpg" },
     ],
     links: [
-      { rel: "canonical", href: "https://telemedicinaacessivel.com.br/" },
+      { rel: "canonical", href: "https://telemedicinaacessivel.com.br/individual-familiar" },
     ],
     scripts: [
       {
@@ -51,7 +51,7 @@ export const Route = createFileRoute("/individual-familiar")({
               name: "Next Go Saúde",
               alternateName: "Akvo Serviços Administrativos",
               description: "Telemedicina 24h com médicos online imediatos e clube de descontos em farmácia.",
-              url: "https://telemedicinaacessivel.com.br/",
+              url: "https://telemedicinaacessivel.com.br/individual-familiar",
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "Suporte ao Cliente",
