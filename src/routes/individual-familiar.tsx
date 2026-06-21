@@ -3,6 +3,8 @@ import { useState } from "react";
 import {
   Stethoscope, Clock, ShieldCheck, Pill, BadgeCheck,
   Check, Menu, X, MessageCircle, Sparkles, ShieldPlus, HandHeart,
+  Utensils, Dumbbell, Film, ShoppingBag, GraduationCap, Car,
+  Diamond, Zap, Dog, PartyPopper,
 } from "lucide-react";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
@@ -223,8 +225,50 @@ const PARTNERS = [
 function Benefits() {
   const items = [
     { icon: Sparkles, title: "Pronto Atendimento sem carência", desc: "O Pronto Atendimento 24h libera assim que a primeira mensalidade é confirmada. Consultas com especialistas podem ter carência, que varia conforme o plano escolhido — e o Premium é totalmente sem carência." },
-    { icon: Pill, title: "Clube de Descontos para o dia a dia", desc: "Economize em medicamentos, exames laboratoriais e de imagem, academias, cinemas e lojas. Mais de 30 mil estabelecimentos parceiros em todo o Brasil, com descontos de até 80%." },
+    { icon: Pill, title: "Clube de Descontos para o dia a dia", desc: "Economize em medicamentos, exames laboratoriais e de imagem, e aproveite descontos em gastronomia, lazer, esportes e muito mais. São mais de 600 mil produtos e serviços em todo o Brasil, com descontos de até 80%." },
     { icon: Stethoscope, title: "Mais de 30 especialidades", desc: "Além de clínico geral à sua disposição em tempo integral, todos os dias do ano, você conta com uma rede de especialistas dentre psicólogos, psiquiatras, dermatologistas, pediatras, nutricionistas, endocrinologista, geriatras, cardiologistas e muitas outras." },
+  ];
+  const benefitCategories = [
+    {
+      label: "Gastronomia",
+      icon: Utensils,
+      brands: ["Coco Bambu", "Jerônimo", "Domino's Pizza", "Grupo Madero"],
+    },
+    {
+      label: "Lazer & Entretenimento",
+      icon: Film,
+      brands: ["Cinemark", "Cineart"],
+    },
+    {
+      label: "Esportes",
+      icon: Dumbbell,
+      brands: ["Centauro", "Netshoes"],
+    },
+    {
+      label: "Educação",
+      icon: GraduationCap,
+      brands: ["Anhanguera"],
+    },
+    {
+      label: "Varejo",
+      icon: ShoppingBag,
+      brands: ["Magalu", "Ponto", "Zattini", "Vivara"],
+    },
+    {
+      label: "Pets",
+      icon: Dog,
+      brands: ["Petz"],
+    },
+    {
+      label: "Mobilidade",
+      icon: Car,
+      brands: ["Movida", "Unidas"],
+    },
+    {
+      label: "Eletro & Casa",
+      icon: Zap,
+      brands: ["Electrolux", "Panasonic"],
+    },
   ];
   return (
     <section id="beneficios" className="py-20 md:py-28">
@@ -243,6 +287,34 @@ function Benefits() {
               <h3 className="mt-5 font-display text-xl font-bold">{i.title}</h3>
               <p className="mt-2 text-muted-foreground">{i.desc}</p>
             </article>
+          ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary bg-accent/60 px-3 py-1.5 rounded-full">
+            <PartyPopper className="w-3.5 h-3.5" /> Clube de benefícios
+          </div>
+          <h3 className="mt-3 text-2xl md:text-3xl font-extrabold">Muito além da saúde</h3>
+          <p className="mt-3 text-muted-foreground text-lg max-w-2xl mx-auto">
+            Além de cuidar da sua saúde, você aproveita descontos exclusivos em gastronomia, lazer, esportes, educação, varejo e muito mais. São <strong className="text-foreground">mais de 600 mil produtos e serviços</strong> para você e sua família economizarem no dia a dia.
+          </p>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {benefitCategories.map(cat => (
+            <div key={cat.label} className="p-5 rounded-2xl bg-card border border-border shadow-card hover:-translate-y-1 hover:shadow-soft transition">
+              <div className="flex items-center gap-2 mb-3">
+                <cat.icon className="w-4 h-4 text-primary" />
+                <span className="text-sm font-semibold text-foreground">{cat.label}</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {cat.brands.map(brand => (
+                  <span key={brand} className="inline-flex items-center px-2.5 py-1 rounded-full bg-muted text-xs font-medium text-muted-foreground border border-border">
+                    {brand}
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
 
