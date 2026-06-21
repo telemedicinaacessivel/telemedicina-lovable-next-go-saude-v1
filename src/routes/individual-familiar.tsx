@@ -3,6 +3,8 @@ import { useState } from "react";
 import {
   Stethoscope, Clock, ShieldCheck, Pill, BadgeCheck,
   Check, Menu, X, MessageCircle, Sparkles, ShieldPlus, HandHeart,
+  Utensils, Dumbbell, Film, ShoppingBag, GraduationCap, Car,
+  Diamond, Zap, Dog, PartyPopper,
 } from "lucide-react";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
