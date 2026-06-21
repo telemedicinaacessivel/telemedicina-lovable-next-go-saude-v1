@@ -14,6 +14,7 @@ import { Route as TelemedicinaEmpresarialRouteImport } from './routes/telemedici
 import { Route as StartRouteImport } from './routes/start'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as ManualMarcaRouteImport } from './routes/manual-marca'
+import { Route as IndividualFamiliarRouteImport } from './routes/individual-familiar'
 import { Route as DesignSystemRouteImport } from './routes/design-system'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -42,6 +43,11 @@ const ManualMarcaRoute = ManualMarcaRouteImport.update({
   path: '/manual-marca',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndividualFamiliarRoute = IndividualFamiliarRouteImport.update({
+  id: '/individual-familiar',
+  path: '/individual-familiar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DesignSystemRoute = DesignSystemRouteImport.update({
   id: '/design-system',
   path: '/design-system',
@@ -56,6 +62,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/design-system': typeof DesignSystemRoute
+  '/individual-familiar': typeof IndividualFamiliarRoute
   '/manual-marca': typeof ManualMarcaRoute
   '/privacidade': typeof PrivacidadeRoute
   '/start': typeof StartRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/design-system': typeof DesignSystemRoute
+  '/individual-familiar': typeof IndividualFamiliarRoute
   '/manual-marca': typeof ManualMarcaRoute
   '/privacidade': typeof PrivacidadeRoute
   '/start': typeof StartRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/design-system': typeof DesignSystemRoute
+  '/individual-familiar': typeof IndividualFamiliarRoute
   '/manual-marca': typeof ManualMarcaRoute
   '/privacidade': typeof PrivacidadeRoute
   '/start': typeof StartRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/design-system'
+    | '/individual-familiar'
     | '/manual-marca'
     | '/privacidade'
     | '/start'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/design-system'
+    | '/individual-familiar'
     | '/manual-marca'
     | '/privacidade'
     | '/start'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/design-system'
+    | '/individual-familiar'
     | '/manual-marca'
     | '/privacidade'
     | '/start'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DesignSystemRoute: typeof DesignSystemRoute
+  IndividualFamiliarRoute: typeof IndividualFamiliarRoute
   ManualMarcaRoute: typeof ManualMarcaRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
   StartRoute: typeof StartRoute
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ManualMarcaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/individual-familiar': {
+      id: '/individual-familiar'
+      path: '/individual-familiar'
+      fullPath: '/individual-familiar'
+      preLoaderRoute: typeof IndividualFamiliarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/design-system': {
       id: '/design-system'
       path: '/design-system'
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DesignSystemRoute: DesignSystemRoute,
+  IndividualFamiliarRoute: IndividualFamiliarRoute,
   ManualMarcaRoute: ManualMarcaRoute,
   PrivacidadeRoute: PrivacidadeRoute,
   StartRoute: StartRoute,
