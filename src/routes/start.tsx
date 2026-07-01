@@ -118,18 +118,38 @@ function StartPage() {
     });
   }, [safeNext, label]);
 
+  const [success, setSuccess] = useState(false);
+
   const form = useForm<LeadFormValues>({
     resolver: zodResolver(leadSchema),
     defaultValues: { name: "", email: "", phone: "", consent: false as unknown as true, website: "" },
     mode: "onBlur",
   });
 
-  const onSubmit = form.handleSubmit((values) => {
+  const onSubmit = form.handleSubmit(async (values) => {
     if (Date.now() - openedAtRef.current < MIN_FORM_TIME_MS) {
       form.setError("root", { message: "Aguarde um instante e tente novamente." });
       return;
     }
     const data = leadSchema.parse(values);
+
+    const { error } = await supabase.from("leads").insert({
+      nome: data.name,
+      email: data.email,
+      whatsapp: data.phone,
+      consentimento_lgpd: true,
+      origem: label || null,
+      destino: safeNext || null,
+    });
+
+    if (error) {
+      console.error("Erro ao salvar lead:", error);
+      form.setError("root", {
+        message: "Não foi possível enviar seus dados agora. Tente novamente em instantes.",
+      });
+      return;
+    }
+
     saveLead({
       name: data.name,
       email: data.email,
@@ -149,11 +169,15 @@ function StartPage() {
       page_path: "/start",
     });
 
-    if (safeNext) {
-      openUrl(safeNext);
-    } else {
-      void navigate({ to: "/" });
-    }
+    setSuccess(true);
+
+    window.setTimeout(() => {
+      if (safeNext) {
+        openUrl(safeNext);
+      } else {
+        void navigate({ to: "/" });
+      }
+    }, REDIRECT_DELAY_MS);
   });
 
   return (
