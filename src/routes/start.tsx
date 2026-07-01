@@ -1,16 +1,18 @@
 import { createFileRoute, useNavigate, useRouter } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { ShieldCheck, ArrowLeft, AlertCircle } from "lucide-react";
+import { ShieldCheck, ArrowLeft, AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 import logo from "@/assets/nextgo-logo.png";
 import { saveLead } from "@/components/LeadCaptureDialog";
+import { supabase } from "@/integrations/supabase/client";
 
 const MIN_FORM_TIME_MS = 1500;
+const REDIRECT_DELAY_MS = 1800;
 
 // Allowlist of destination origins to prevent open-redirect abuse
 const ALLOWED_HOSTS = [
