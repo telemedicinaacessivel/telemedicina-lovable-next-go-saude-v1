@@ -90,12 +90,6 @@ function ChoiceCard({ choice }: { choice: Choice }) {
           : "border-border hover:border-[color:var(--primary)]/40",
       ].join(" ")}
     >
-      {choice.highlight && (
-        <span className="absolute -top-3 left-7 text-[11px] font-semibold tracking-wide uppercase px-3 py-1 rounded-full text-primary-foreground"
-              style={{ background: "var(--gradient-primary)" }}>
-          Mais popular
-        </span>
-      )}
       <span
         className="inline-flex items-center justify-center size-14 rounded-2xl text-primary-foreground mb-5 transition-transform duration-300 group-hover:scale-105"
         style={{ background: "var(--gradient-primary)" }}
