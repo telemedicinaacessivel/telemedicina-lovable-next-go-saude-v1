@@ -58,7 +58,7 @@ const choices: Choice[] = [
     icon: <HeartPulse className="size-7" aria-hidden />,
     href: "/individual-familiar",
     cta: "Ver planos para família",
-    highlight: false,
+    highlight: false, // badge "mais popular" removido
   },
   {
     id: "empresa",
